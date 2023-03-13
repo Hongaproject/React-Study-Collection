@@ -6,16 +6,16 @@ function Counter ({marginLeft}) {
     const onIncrease = () => {
         setNumber(number+1);
     }
-    const onDecrease = () => {
-        setNumber(number+1);
-    }
-    
+
+    // const onDecrease = () => {
+    //     setNumber(number+1);
+    // }
 
     return(
         <div style={{marginLeft}}>
             <h1>{number}</h1>
             <button onClick={onIncrease}>+</button>
-            <button onClick={onDecrease}>-</button>
+            <button onClick={()=>setNumber(number-1)}>-</button>
         </div>
     );
 }
