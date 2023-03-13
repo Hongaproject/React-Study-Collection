@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function Counter () {
+function Counter ({marginLeft}) {
 
     const [number, setNumber] = useState(0);
     const onIncrease = () => {
@@ -8,7 +8,7 @@ function Counter () {
     }
 
     return(
-        <div>
+        <div style={{marginLeft}}>
             <h1>{number}</h1>
             <button onClick={onIncrease}>+</button>
             <button onClick={()=> setNumber(number-1)}>-</button>
