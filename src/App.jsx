@@ -1,4 +1,5 @@
 import React, {useRef, useState} from 'react';
+import Box from './Box';
 import Counter from './Counter';
 import CreateUserList1 from './CreateUserList1';
 import HelloWorld from './HelloWorld';
@@ -72,7 +73,7 @@ function App() {
 
   return (  
     <div>
-      <Wrapper>
+      {/* <Wrapper>
         <HelloWorld name="2일차 입니다." color="aqua" backgroundColor="black" padding="1rem"/>
       </Wrapper>
       <Counter marginLeft="20px"/>
@@ -84,7 +85,7 @@ function App() {
       <UserList2 marginLeft="20px"/>
       <br />
       <UserList3 marginLeft="20px"/>
-      <br />
+      <br /> */}
       <CreateUserList1 marginLeft="20px" 
         username={username}
         email={email}
@@ -92,6 +93,7 @@ function App() {
         onCreate={onCreate}
       />
       <UserList4 users={users} onRemove={onRemove} onToggle={onToggle} marginLeft="20px"/>
+      <Box/>
     </div>
   );
 }

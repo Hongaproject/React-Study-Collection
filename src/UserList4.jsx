@@ -1,15 +1,20 @@
+import React, {useEffect} from "react";
+
 function User ({user, onRemove, onToggle}) {
+    useEffect(() => {
+        console.log(user);
+      });
     return(
         <div>
             <span style={{
                 cursor: 'pointer', color: user.active ? 'green' : 'black'}}
-                onClick={()=>onToggle(user.id)}
-                >{user.username}</span>
+                onClick={()=>onToggle(user.id)}>
+                {user.username}</span>
                 <span>({user.email})</span>
 
             <button onClick={()=>onRemove(user.id)}>삭제</button>
         </div>
-);
+    );
 }
 
 function UserList4 ({users, onRemove , onToggle, marginLeft}) {
