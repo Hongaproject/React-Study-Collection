@@ -1,14 +1,21 @@
+import axios from "axios";
 import React from "react";
 
 class App extends React.Component{
   state = {
-    isLoading: true
+    isLoading: true,
+    movies: []
   };
-  
+
+  getMoives = async () => {
+    const movies = await axios.get();
+  }
+
   componentDidMount(){
-    setTimeout(() =>  {
-      this.setState({isLoading: false});
-    }, 3000);
+    // setTimeout(() =>  {
+    //   this.setState({isLoading: false});
+    // }, 3000);
+  
   }
 
   render(){
