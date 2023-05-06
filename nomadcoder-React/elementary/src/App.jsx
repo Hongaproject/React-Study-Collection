@@ -15,7 +15,7 @@ class App extends React.Component{
     // setTimeout(() =>  {
     //   this.setState({isLoading: false});
     // }, 3000);
-  
+    this.getMoives();
   }
 
   render(){
