@@ -8,8 +8,20 @@ class App extends React.Component{
   };
 
   getMoives = async () => {
-    const movies = await axios.get();
-  }
+    // const movies = await axios.get(`https://yts.mx/api/v2/movie_details.json`);
+    // this.setState({movies:movies.data.data.movies})
+    // console.log(movies.data.data.movies);
+
+    const {
+      data: {
+        data: {movies}
+      }
+    } = await axios.get(`https://yts.mx/api/v2/movie_details.json`);
+    this.setState({movies, isLoading: false});
+    // this.setState({movies:movies})
+
+    console.log(movies);
+  };
 
   componentDidMount(){
     // setTimeout(() =>  {
