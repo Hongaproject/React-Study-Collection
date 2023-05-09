@@ -10,6 +10,7 @@ function Movie({year, title, summary, poster, genres}){
         //     <h3 className="movie_title">{title}</h3>
         //     <h5 className="movie_year">{year}</h5>
         //     <p className="movie_summary">{summary}</p>
+        //
         // </div>
 
         <div className="movie">

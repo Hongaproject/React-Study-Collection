@@ -48,6 +48,7 @@ class App extends React.Component{
       //       summary={movie.summary} 
       //       poster={movie.medium_cover_image}
       //       />
+      //
       //   ))}
       // </div>
 
