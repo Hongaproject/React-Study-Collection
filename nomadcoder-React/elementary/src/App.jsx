@@ -49,6 +49,7 @@ class App extends React.Component{
       //       poster={movie.medium_cover_image}
       //       />
       //
+      //
       //   ))}
       // </div>
 
