@@ -3,7 +3,6 @@ import React from "react";
 import Movie from "./components/Movie";
 import "./App.css";
 
-
 class App extends React.Component{
   state = {
     isLoading: true,
@@ -71,20 +70,9 @@ class App extends React.Component{
           </div>
         )}
       </section>
+      
     );
   }
 }
 
 export default App;
-
-
-
-// function App() {
-//   return(
-//     <div>
-   
-//     </div>
-//   );
-// }
-
-// export default App;
