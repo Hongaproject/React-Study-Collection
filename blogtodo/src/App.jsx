@@ -1,23 +1,14 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
-import HelloWorld from './basic/HelloWorld';
-
-  
+import Study from './study';
 
 function App() {
 
-  const [isLoading, setIsLoading] = useState(true);
-  
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  },[]);
-
   return (
     <div>
-      <HelloWorld />
-      {isLoading ? 'Loading...' : 'I am ready'}
+      <h1>리액트란?</h1>
+      <h3>페이스북에서 만든 자바스크립트 UI 라이브러리이다. 특징으로는 SPA CSR virtual DOM이 있다.</h3>
+      <Study />
     </div>
   );
 }
