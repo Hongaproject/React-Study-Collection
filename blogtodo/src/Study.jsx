@@ -9,4 +9,8 @@ function Study({name, color}) {
     );
 }
 
+Study.defaultProps = {
+    name: '이름없음'
+  }
+  
 export default Study;
