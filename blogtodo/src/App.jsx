@@ -4,6 +4,7 @@ import Study from './Study';
 import styled from 'styled-components';
 import Wrapper from './Wrapper';
 import Counter from './reacthook/Counter';
+import UseEffect from './reacthook/UseEffect';
 
 function App() {
 
@@ -27,6 +28,8 @@ function App() {
       <br/>
       <h1>카운터</h1>
       <Counter />
+      <br/>
+      <UseEffect />
     </Wrapper>
   );
 }
