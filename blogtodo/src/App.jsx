@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Wrapper from './Wrapper';
 import Counter from './reacthook/Counter';
 import UseEffect from './reacthook/UseEffect';
+import InputState from './reacthook/InputState';
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
       <Counter />
       <br/>
       <UseEffect />
+      <br/>
+      <InputState />
     </Wrapper>
   );
 }
