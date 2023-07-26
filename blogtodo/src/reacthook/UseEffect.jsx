@@ -12,7 +12,14 @@ const UseEffect = () => {
         return ()=> {
             console.log("컴포넌트 사라짐");
         };
-    });
+    }, [name]);
+
+    useEffect(()=>{
+        //함수 A
+        return() => {
+            //함수 B
+        }
+    }, []) //배열에 값이 없을 때
     
     const onChange = () => {
         setName("변경 후 이름")
