@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function InputStateRef() {
 
@@ -6,6 +6,8 @@ function InputStateRef() {
         name: '',
         nickname: ''
     }); //input태그의 초기값 설정
+
+    const textInput = useRef(); //특정 DOM을 설정하기위해 사용
 
     const {name, nickname} = text; //input의 value값을 유지하기 위해 설정
 
@@ -22,11 +24,13 @@ function InputStateRef() {
             name:'',
             nickname:'' //초기화 
         });
+        textInput.current.focus(); //current로 원하는 DOM을 가르키고 focus로 잡아준다.
     };
 
     return(
         <div>
-            <input name="name" placeholder="이름" onChange={onChange} value={name}/>
+            <input name="name" placeholder="이름" onChange={onChange} value={name} ref={textInput}/>
+            {/* ref를 사용시 초기화 버튼 클릭 시 이름 부분에 커서가 잡힌다.*/}
             <input name="nickname" placeholder="닉네임" onChange={onChange} value={nickname}/>
             <button onClick={onReset}>초기화</button>
             <div>
