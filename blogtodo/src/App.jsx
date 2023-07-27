@@ -6,6 +6,7 @@ import Wrapper from './Wrapper';
 import Counter from './reacthook/Counter';
 import UseEffect from './reacthook/UseEffect';
 import InputState from './reacthook/InputState';
+import InputStateRef from './reacthook/InputStateRef';
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
       <UseEffect />
       <br/>
       <InputState />
+      <br/>
+      <InputStateRef />
     </Wrapper>
   );
 }
