@@ -15,6 +15,7 @@ function InputState(){
     
     return(
         <div>
+            <h1>input useState</h1>
             <input onChange={onChange} type="text" value={text}/>
             <button onClick={onReset}>초기화</button>
             <div>

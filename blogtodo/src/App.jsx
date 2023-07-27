@@ -7,6 +7,7 @@ import Counter from './reacthook/Counter';
 import UseEffect from './reacthook/UseEffect';
 import InputState from './reacthook/InputState';
 import InputStateRef from './reacthook/InputStateRef';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
 
@@ -14,12 +15,20 @@ function App() {
     color: 'pink'
   }
 
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate("/Userlist");
+  }
+
+
   const Test = styled.div`
     color: aquamarine;
   `
   
   return (
     <Wrapper>
+      <button onClick={onClick}><h1>todolist</h1></button>
       <h1 color='red'>리액트란?</h1>
       <h3 style={react} >페이스북에서 만든 자바스크립트 UI 라이브러리이다. 특징으로는 SPA CSR virtual DOM이 있다.</h3>
       <Study name="Component" color="aqua" isSpecial />
