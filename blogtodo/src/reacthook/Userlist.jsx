@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function User({user}) {
     return(
-        <div>{user.name} {user.email}</div>
+        <div>{user.name} ({user.email})</div>
     );
 }
 
@@ -45,6 +45,12 @@ function Userlist () {
             <User user={users[0]}/>
             <User user={users[1]}/>
             <User user={users[2]}/>
+            <br/>
+            {users.map((user)=>(
+                <User user={user}/>
+                //<Uset안에 user= 는 User컴포넌트에 들어가는 user의 인자를 의미
+                // user={} 안에 내용은 users 배열의 각 원소값을 의미합니다.
+            ))}
         </Body>
     );
 }
