@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-function User({user}) {
+function User({user}) { //User이라는 컴포넌트 생성 
     return(
         <div>{user.name} ({user.email})</div>
     );
