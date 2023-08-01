@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
-function User({user}) { //User이라는 컴포넌트 생성 
+function User({user, onRemove}) { //User이라는 컴포넌트 생성 
     return(
-        <div>{user.name} ({user.email})</div>
+        <div>{user.name} ({user.email})
+            <button onClick={()=> onRemove(user.id)}>삭제</button>
+        </div>
     );
 }
 
-function UserlistData({users}) {
+function UserlistData({users, onRemove}) {
 
     const Body = styled.div`
         padding: 20px;
@@ -21,7 +23,7 @@ function UserlistData({users}) {
             <User user={users[2]}/>
             <br/>
             {users.map((user)=>(
-                <User user={user} key={user.id}/>
+                <User user={user} key={user.id} onRemove={onRemove}/>
                 //<Uset안에 user= 는 User컴포넌트에 들어가는 user의 인자를 의미
                 // user={} 안에 내용은 users 배열의 각 원소값을 의미합니다.
             ))}

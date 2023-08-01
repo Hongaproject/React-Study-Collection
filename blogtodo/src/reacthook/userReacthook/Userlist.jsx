@@ -101,6 +101,12 @@ function Userlist () {
       nextId.current += 1;
   };
 
+
+  const onRemove = (id) => {
+    //user.id로 이루어진 id만 삭제한다. 
+    setUsers(users.filter(user => user.id !== id));
+  }
+
   const Body = styled.div`
       padding: 20px;
   `
@@ -119,7 +125,7 @@ function Userlist () {
               // user={} 안에 내용은 users 배열의 각 원소값을 의미합니다.
           ))} */}
 
-          <UserlistData users={users}/>
+          <UserlistData users={users} onRemove={onRemove}/>
           {/* 임의로 만든 배열내용 users를 UserlistData에 props로 보낸다. */}
           <CreateUser name={name} email={email} onChange={onChange} onCreate={onCreate} />
 
