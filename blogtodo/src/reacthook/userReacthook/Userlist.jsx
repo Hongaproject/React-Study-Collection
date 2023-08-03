@@ -54,23 +54,27 @@ function Userlist () {
       });
   };
 
-  const [users, setUsers] = useState([ //배열 생성 상태 관리하기위해 useState사용
+  const [users, setUsers] = useState([ // 배열 생성 상태 관리하기위해 useState사용
       {
           id: 1,
           name: "a",
-          email: "a@.com"
+          email: "a@.com",
+          active: true
       },
       {
           id: 2,
           name: "b",
-          email: "b@.com"
+          email: "b@.com",
+          active: false
       },
       {
           id: 3,
           name: "c",
-          email: "c@.com"
+          email: "c@.com",
+          active: false
       }
   ]);
+  // active값에 따라 폰트 색상을 바꿔주도록 구현
 
 
   const nextId = useRef(4); //함수가 호출시 마다 4이며 Ref는 React가 만든 전역 저장소에 저장
@@ -105,7 +109,15 @@ function Userlist () {
   const onRemove = (id) => {
     //user.id로 이루어진 id만 삭제한다. 
     setUsers(users.filter(user => user.id !== id));
+    //불변성을 유지하면서 특정 원소를 배열에서 삭제하려면 filter를 사용해야한다. 
   }
+
+  const onToggle = (id) => {
+    setUsers(users.map(user => user.id === id ? { ...user, active: !user.active } : user));
+    // 배열의 불변성 유지 id값 비교하여 active값 반전시키도록 구현 함.
+    // 이 다음 Userlist가 있는 컴포넌트에 전달한다. 
+  }
+
 
   const Body = styled.div`
       padding: 20px;
@@ -125,8 +137,9 @@ function Userlist () {
               // user={} 안에 내용은 users 배열의 각 원소값을 의미합니다.
           ))} */}
 
-          <UserlistData users={users} onRemove={onRemove}/>
+          <UserlistData users={users} onRemove={onRemove} onToggle={onToggle}/>
           {/* 임의로 만든 배열내용 users를 UserlistData에 props로 보낸다. */}
+
           <CreateUser name={name} email={email} onChange={onChange} onCreate={onCreate} />
 
       </Body>
