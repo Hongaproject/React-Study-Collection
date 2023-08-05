@@ -4,11 +4,15 @@ import styled from "styled-components";
 function User({user, onRemove, onToggle}) { //User이라는 컴포넌트 생성 
     
     useEffect(() => {
-        console.log('컴포넌트가 화면에 나타남');
+        // console.log('컴포넌트가 화면에 나타남');
+        console.log('user 값이 설정됨');
+        console.log(user);
         return () => {
-          console.log('컴포넌트가 화면에서 사라짐');
+        //   console.log('컴포넌트가 화면에서 사라짐');
+            console.log('user 가 바뀌기 전..');
+            console.log(user);
         };
-      }, []);
+      }, [user]);
       
     return(
         <div>
