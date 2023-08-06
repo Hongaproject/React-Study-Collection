@@ -12,6 +12,8 @@ function User({user, onRemove, onToggle}) { //User이라는 컴포넌트 생성
             console.log('user 가 바뀌기 전..');
             console.log(user);
         };
+        //Hook 을 사용하여 컴포넌트가 마운트 됐을 때 (처음 나타났을 때), 
+        //언마운트 됐을 때 (사라질 때), 그리고 업데이트 될 때 (특정 props가 바뀔 때) 특정 작업을 처리하는 방법
       }, [user]);
       
     return(
