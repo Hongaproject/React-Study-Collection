@@ -11,7 +11,7 @@ function App() {
         <Main />
           <Routes>
             <Route path="/" element={<Sub />}></Route>
-            {/* <Route path="/sub2" element={<Sub2 />}></Route> */}
+            <Route path="/sub2" element={<Sub2 />}></Route>
           </Routes>
       </BrowserRouter>
     </div>
