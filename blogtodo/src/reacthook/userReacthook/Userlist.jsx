@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import UserlistData from "./UserlistData";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import CreateUser from "./CreateUser";
 
 //초기작업 파일 형태
@@ -11,6 +11,11 @@ import CreateUser from "./CreateUser";
 //         <div>{user.name} ({user.email})</div>
 //     );
 // }
+
+function countActiveUsers(users){
+    console.log('활성 사용자 수 확인');
+    return users.filter(user => user.active).length;
+}
 
 function Userlist () {
 
@@ -118,6 +123,8 @@ function Userlist () {
     // 이 다음 Userlist가 있는 컴포넌트에 전달한다. 
   }
 
+  const count = useMemo(()=> countActiveUsers(users), [users]);
+  // Memo 는 "memoized" 를 의미하는데, 이는, 이전에 계산 한 값을 재사용한다는 의미를 가진다.
 
   const Body = styled.div`
       padding: 20px;
@@ -141,7 +148,7 @@ function Userlist () {
           {/* 임의로 만든 배열내용 users를 UserlistData에 props로 보낸다. */}
 
           <CreateUser name={name} email={email} onChange={onChange} onCreate={onCreate} />
-
+          <div>활성사용자 수 : {count}</div>
       </Body>
     );
 }
