@@ -1,3 +1,5 @@
+import React from "react";
+
 function CreateUser({onChange, name, email, onCreate}){ //직접 관리하지 않고 Userlist에서 props로 값을 받아온다.
   return(
       <div>
@@ -8,4 +10,6 @@ function CreateUser({onChange, name, email, onCreate}){ //직접 관리하지 �
   );
 }
 
-export default CreateUser;
+export default React.memo(CreateUser);
+// React.memo는 props가 바뀌지 않으면, 리렌더링 방지함.
+// 리렌더링 필요한 상황서만 리렌더링 가능.

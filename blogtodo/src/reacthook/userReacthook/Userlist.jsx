@@ -133,7 +133,13 @@ function Userlist () {
 
   // onCreate, Remove, Toggle등은 리렌더링 시 새롭게 만들어집니다. 
   // 한 번 만든 함수를 필요시만 새로 만들고, 재사용 하는것이 중요
-  // 
+
+    //   const onToggle = useMemo( // useMemo 사용 시 표현
+    //     () => () => {
+    //       /* ... */
+    //     },
+    //     [users]
+    //   );
 
   const count = useMemo(()=> countActiveUsers(users), [users]);
   // Memo 는 "memoized" 를 의미하는데, 이는, 이전에 계산 한 값을 재사용한다는 의미를 가진다.

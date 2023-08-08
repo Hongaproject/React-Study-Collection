@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import styled from "styled-components";
+import React from "react";
 
-function User({user, onRemove, onToggle}) { //User이라는 컴포넌트 생성 
+const User = React.memo(function User({ user, onRemove, onToggle }) { //User이라는 컴포넌트 생성 
     
     useEffect(() => {
         // console.log('컴포넌트가 화면에 나타남');
@@ -32,7 +33,7 @@ function User({user, onRemove, onToggle}) { //User이라는 컴포넌트 생성
             <button onClick={()=> onRemove(user.id)}>삭제</button>
         </div>
     );
-}
+});
 
 function UserlistData({users, onRemove, onToggle}) {
 
