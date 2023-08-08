@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import UserlistData from "./UserlistData";
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import CreateUser from "./CreateUser";
 
 //초기작업 파일 형태
@@ -50,14 +50,18 @@ function Userlist () {
 
   const { name, email } = input; // input의 value값 유지하기 위해 사용 
 
-  const onChange = (e) => {
-      const { name, value} = e.target // 원래 한 개의 input시 e.target.value로 사용
-      //이벤트 타켓으로 name, value값을 조회한다.
-      setInput({
-          ...input, // spread문법을 사용해서 객체를 복사하여 사용한다.
-          [name]: value // key-value로 name부분에 name과 email값이 들어올 수 있게 사용. 
-      });
-  };
+  const onChange = useCallback(e => {
+        const { name, value} = e.target // 원래 한 개의 input시 e.target.value로 사용
+        //이벤트 타켓으로 name, value값을 조회한다.
+        setInput({
+            ...input, // spread문법을 사용해서 객체를 복사하여 사용한다.
+            [name]: value // key-value로 name부분에 name과 email값이 들어올 수 있게 사용. 
+        });
+    },
+    [input]
+  );
+
+ 
 
   const [users, setUsers] = useState([ // 배열 생성 상태 관리하기위해 useState사용
       {
@@ -86,7 +90,7 @@ function Userlist () {
   // 함수를 재 호출시 마지막으로 업데이트된 current값이 유지가 된다.
   // useRef 로 관리하는 변수는 값이 바뀌어도 컴포넌트 리렌더링 X 이 값을 수정 할때에는 .current 값을 수정, 조회 할 때에는 .current 를 조회
   // https://ko.legacy.reactjs.org/docs/hooks-reference.html#useref 설명
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
       const user = {
         id:nextId.current,
         name,
@@ -108,20 +112,28 @@ function Userlist () {
           email: ''
       });
       nextId.current += 1;
-  };
+  }, [users, name, email]);
 
 
-  const onRemove = (id) => {
-    //user.id로 이루어진 id만 삭제한다. 
-    setUsers(users.filter(user => user.id !== id));
-    //불변성을 유지하면서 특정 원소를 배열에서 삭제하려면 filter를 사용해야한다. 
-  }
+  const onRemove = useCallback(id => {
+        //user.id로 이루어진 id만 삭제한다. 
+        setUsers(users.filter(user => user.id !== id));
+        //불변성을 유지하면서 특정 원소를 배열에서 삭제하려면 filter를 사용해야한다. 
+    },
+    [users]
+  );
 
-  const onToggle = (id) => {
-    setUsers(users.map(user => user.id === id ? { ...user, active: !user.active } : user));
-    // 배열의 불변성 유지 id값 비교하여 active값 반전시키도록 구현 함.
-    // 이 다음 Userlist가 있는 컴포넌트에 전달한다. 
-  }
+  const onToggle = useCallback(id => {
+        setUsers(users.map(user => user.id === id ? { ...user, active: !user.active } : user));
+        // 배열의 불변성 유지 id값 비교하여 active값 반전시키도록 구현 함.
+        // 이 다음 Userlist가 있는 컴포넌트에 전달한다. 
+    },
+    [users]
+  );
+
+  // onCreate, Remove, Toggle등은 리렌더링 시 새롭게 만들어집니다. 
+  // 한 번 만든 함수를 필요시만 새로 만들고, 재사용 하는것이 중요
+  // 
 
   const count = useMemo(()=> countActiveUsers(users), [users]);
   // Memo 는 "memoized" 를 의미하는데, 이는, 이전에 계산 한 값을 재사용한다는 의미를 가진다.
