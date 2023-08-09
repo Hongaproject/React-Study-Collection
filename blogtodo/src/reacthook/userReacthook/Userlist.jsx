@@ -90,6 +90,7 @@ function Userlist () {
   // 함수를 재 호출시 마지막으로 업데이트된 current값이 유지가 된다.
   // useRef 로 관리하는 변수는 값이 바뀌어도 컴포넌트 리렌더링 X 이 값을 수정 할때에는 .current 값을 수정, 조회 할 때에는 .current 를 조회
   // https://ko.legacy.reactjs.org/docs/hooks-reference.html#useref 설명
+
   const onCreate = useCallback(() => {
       const user = {
         id:nextId.current,
@@ -130,7 +131,8 @@ function Userlist () {
     },
     [users]
   );
-
+  // useMemo는 특정 결과값을 재사용 할 때 사용 useCallback은 함수를 새로 만들지않고 재사용함.
+  // props값을 이용한다면 deps 배열안에 포함시켜야한다. 
   // onCreate, Remove, Toggle등은 리렌더링 시 새롭게 만들어집니다. 
   // 한 번 만든 함수를 필요시만 새로 만들고, 재사용 하는것이 중요
 

@@ -4,6 +4,8 @@ import React from "react";
 
 const User = React.memo(function User({ user, onRemove, onToggle }) { //User이라는 컴포넌트 생성 
     
+    //React.memo는 props가 바뀌지 않았다면, 리렌더링을 방지하여 컴포넌트의 리렌더링 성능 최적화를 해줍니다.
+
     useEffect(() => {
         // console.log('컴포넌트가 화면에 나타남');
         console.log('user 값이 설정됨');
@@ -60,4 +62,4 @@ function UserlistData({users, onRemove, onToggle}) {
     );
 }
 
-export default UserlistData;
+export default React.memo(UserlistData);

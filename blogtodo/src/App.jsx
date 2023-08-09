@@ -21,7 +21,6 @@ function App() {
     navigate("/Userlist");
   }
 
-
   const Test = styled.div`
     color: aquamarine;
   `
@@ -45,6 +44,8 @@ function App() {
       <InputState />
       <br/>
       <InputStateRef />
+      <br />
+      
     </Wrapper>
   );
 }

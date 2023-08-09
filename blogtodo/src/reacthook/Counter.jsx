@@ -9,6 +9,8 @@ function reducer(state, action) {
             return state + 1;
         case 'DECREMENT':
             return state - 1;
+        case 'RESET':
+            return 0;
         default:
             return state;
     }
@@ -28,6 +30,7 @@ function Counter(){
             <button onClick={onIncrease}>+</button>
             <button onClick={()=> dispatch({type: 'DECREMENT'})}>-</button>
             {/* 사용자가 버튼 클릭시 setNumber 함수 호출 state변수 갱신 후 리렌더링 하여 보여짐  */}
+            <button onClick={()=> dispatch({type: 'RESET'})}>초기화</button>
         </div>
     );
 }
@@ -49,6 +52,7 @@ export default Counter;
 //             <button onClick={onIncrease}>+</button>
 //             <button onClick={()=> setNumber(number-1)}>-</button>
 //             {/* 사용자가 버튼 클릭시 setNumber 함수 호출 state변수 갱신 후 리렌더링 하여 보여짐  */}
+//             <button onClick={()=> setNumber(0)}>초기화</button>
 //         </div>
 //     );
 // }
