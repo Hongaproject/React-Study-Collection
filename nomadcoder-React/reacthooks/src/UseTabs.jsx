@@ -16,6 +16,8 @@ function UseInputhooks() {
     const useTabs = (initialTab, allTabs) => {
 
         const [currentIndex, setCurrentIndex] = useState(initialTab); 
+        // useState는 값을 초기화 시키거나 선언 함
+        // currentIndex는 index값이 되고, setCurrentIndex는 value를 바꿔 줌.
 
         if(!allTabs || !Array.isArray(allTabs)){ // 조건이 일치시 리턴
             return; 
