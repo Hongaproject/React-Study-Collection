@@ -14,6 +14,7 @@ function Reacthooks () {
         useEffect(()=> {
             updateTitle(); // Mount가 되면 
         }, [title]); // titleUpdate가 불리게 되면 다시 updateTitle이 불러지게 되고 
+        
         return setTitle; // 제목 업데이트 할 수 있게 함.
     }
 
