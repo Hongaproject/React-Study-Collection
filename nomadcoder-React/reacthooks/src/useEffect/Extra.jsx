@@ -27,6 +27,7 @@ function Extra() {
     }
 
     const confirmHi = () => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         useConfirm("what?", hi, no); // 버튼 클릭시 what이라는 문구가 alert창에 나타날 것.
     }
 
