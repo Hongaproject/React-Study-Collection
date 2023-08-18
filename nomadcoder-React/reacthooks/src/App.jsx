@@ -1,9 +1,9 @@
-import UsePreventLeaveExtra from "./useEffect/UsePreventLeaveExtra";
+import UseScroll from "./useEffect/UseScroll";
 
 function App() {
   return (
     <div>
-      <UsePreventLeaveExtra />
+      <UseScroll />
     </div>
   );
 }
