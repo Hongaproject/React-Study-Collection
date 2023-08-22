@@ -10,11 +10,22 @@ const UseAxios = (opts, axiosInstance = dafaultAxios) => { // axios를 얻어서
         data: null
     });
 
-
     if(!opts.url){
         return;
     }
-    
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+        axiosInstance(opts).then(data => { 
+            setState({
+                ...state,
+                loading: false,
+                data
+            });
+        }).catch(error => {
+            setState({...state, loading: false, error});
+        });
+    }, []);
     return state;
 } 
 // instance를 가지고 있지 않다면 dafaultAxios를 기본값으로 세팅 
