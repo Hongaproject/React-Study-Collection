@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Main />
+        <Main /> 
           <Routes>
             <Route path="/" element={<Sub />}></Route>
             <Route path="/sub2" element={<Sub2 />}></Route>
