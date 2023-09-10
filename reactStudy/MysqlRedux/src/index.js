@@ -30,7 +30,26 @@ const onChange = () => {
 }
 countStore.subscribe(onChange);
 
-// countStore.dispatch({ type: "Add" }); // dispatch를 사용해 action을 취함. action은 무조건 object로 받아야함
-plus.addEventListener("click", () => countStore.dispatch({ type: "Plus" }));
+// countStore.dispatch({ type: "Add" }); // dispatch를 사용해 action을 취함. action은 무조건 object와 type으로 받아야함
+plus.addEventListener("click", () => countStore.dispatch({ type: "Plus" })); 
 minus.addEventListener("click", () => countStore.dispatch({ type: "Minus" }));
 
+
+// switch문 
+
+// const Plus = "Plus";
+// const Minus = "Minus";
+
+// const countModify = (count = 0, action) => {
+//   switch (action.type) {
+//     case ADD:
+//       return count + 1;
+//     case MINUS:
+//       return count - 1;
+//     default:
+//       return count;
+//   }
+// };
+
+// plus.addEventListener("click", () => countStore.dispatch({ type: Plus })); 
+// minus.addEventListener("click", () => countStore.dispatch({ type: Minus }));
