@@ -42,9 +42,9 @@ minus.addEventListener("click", () => countStore.dispatch({ type: "Minus" }));
 
 // const countModify = (count = 0, action) => {
 //   switch (action.type) {
-//     case ADD:
+//     case Plus:
 //       return count + 1;
-//     case MINUS:
+//     case Minus:
 //       return count - 1;
 //     default:
 //       return count;

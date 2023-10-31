@@ -54,5 +54,4 @@ class UseStateClass extends React.Component{
     };
 }
 
-
 export default UseState;
