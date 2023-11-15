@@ -1,18 +1,22 @@
 
-// function Props(props) {
-//     return (
-//         <div style={{color: props.color}}>
-//             {/* 이렇게 꺼내서 사용이 가능합니다. */}
-//             {props.name}
-//         </div>
-//     );
-//   }
+function Props(props) {
+    return (
+        <div style={{color: props.color}}>
+            {/* 이렇게 꺼내서 사용이 가능합니다. */}
+            {props.name}
+        </div>
+    );
+  }
+
+  //쓰이는 곳에서 값을 정한다 = props(부모)
+  //쓰임 당하는 곳(Wrapper.js)에서 값을 정한다 = children
 
   function Props({name, color}) { // 비구조할당 문법을 사용시 코드가 더 간결하게 작성이 가능합니다.
     return (
-        <div style={{color}}>
+        // style부분에 {} 2번 사용이유는 1개는 jsx문법용 하나는 객체리터럴 용이라 2개를 사용해야지 적용이 됩니다.
+        // https://ko.legacy.reactjs.org/docs/jsx-in-depth.html 공식문서에 자세히 나와있습니다.
+        <div style={{color}}> 
             {/* 이렇게 꺼내서 사용이 가능합니다. */}
-            {name}
         </div>
     );
   }
