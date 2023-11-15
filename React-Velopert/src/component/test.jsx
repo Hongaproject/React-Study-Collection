@@ -18,7 +18,7 @@ function Test() {
             // 이렇게 Wrapper로 감싸게 된다면 처음에는 내용이 보여지지 않는다. 감싸줬을때 내용을 보여주려면 children을 이용해야한다.
         > 
             <div style={style}>{name}</div>
-            <Props name="어흥" color="red"
+            <Props name="어흥" color="red" isSpecial
                 // 값을 전달해주려면 props를 사용하면 됩니다. name과 color를 내보냈으니
             /> 
         </Wrapper>
