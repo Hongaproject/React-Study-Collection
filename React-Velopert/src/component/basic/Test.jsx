@@ -3,7 +3,7 @@
 // 컴포넌트는 일종의 UI 조각이 되며 재사용성이 좋다.
 
 import Wrapper from "./Wrapper";
-import Props from "./props";
+import Props from "./basic/Props";
 
 function Test() {
     const name = '호랑이'; // JS값 사용하려면 {}로 감싸서 보여준다.
