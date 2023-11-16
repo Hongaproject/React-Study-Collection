@@ -12,6 +12,7 @@ function HookApp() {
 
     // onClick이벤트는 2가지로 사용이 가능하다. 
     // 함수를 만들어서 사용 or 클릭이벤트 부분에 직접 구현
+    
   return (
     <div>
       <h2>{number}</h2>
