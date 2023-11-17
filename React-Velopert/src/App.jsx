@@ -1,5 +1,5 @@
 import React from 'react';
-import InputSample from './component/reacthook/InputSample';
+import HookApp from './component/reacthook/HookApp';
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       다른 프레임워크들은 자바스크립트 특정값이 변하면 특정 DOM의 속성이 바뀌도록 연결을 하여 업데이트를 진행시키게 되어있습니다.
       하지만 리액트는 상태가 바뀌었을때 그상태에 따라 DOM을 어떻게 업데이트를 할지가 아니라 다시 만들어서 보여주자라는 생각에서 시작이 되습니다. 
       그래서 virtual DOM을 사용하기로 했고 리액트가 탄생되게 되었습니다. 
-      <InputSample />
+      <HookApp />
     </div>
   );
 }

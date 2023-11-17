@@ -21,7 +21,7 @@ function InputSample() {
     content: "",
   });
 
-  const inputName = useRef();
+  const inputName = useRef(); // useRef를 통하여 특정 DOM을 선택하여 사용 할 수 있다.
   
   const {title, content} = text1; // 구조분해할당을 사용해 코드를 간략하게 사용함.
 
@@ -40,7 +40,7 @@ function InputSample() {
       title: "",
       content: ""
     });
-    inputName.current.focus();
+    inputName.current.focus(); 
   }
 
   return (
