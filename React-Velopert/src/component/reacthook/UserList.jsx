@@ -11,21 +11,7 @@ function User({user}) {
     );
 }
 
-function UserList() {
-    
-    const users = [ 
-        {
-            id: 1,
-            name: "hongga",
-            hobby: "운동"
-        },
-        {
-            id: 2,
-            name: "오둥이",
-            hobby: "누워있기",
-        }
-    ]
-
+function UserList({users}) {
     
   return (
     <div>
