@@ -24,7 +24,8 @@ function HookApp() {
 
   }
 
-  nextId.current += 1;
+  nextId.current += 1; // sueRef() 사용시 파라미터 넣어주면, 이 값이 기본 값이 됨. (current)
+  // 수정시 current값을 수정하거나 조회시 조회를 하면 된다. 
 
   return (
     <div>
