@@ -18,7 +18,7 @@ function HookApp() {
       });
     };
 
-    const users = [ 
+    const [users, setUsers] = useState([ 
       {
           id: 1,
           name: "hongga",
@@ -29,13 +29,19 @@ function HookApp() {
           name: "오둥이",
           hobby: "누워있기",
       }
-  ]
+  ]);
   
    // Ref는 컴포넌트서 특정 DOM을 선택 할 때 사용한다.
    // Ref는 DOM선택 말고도 컴포넌트 안에서 조회 및 수정을 할 수도 있다.
   const nextId = useRef(3);
   const onCreate = () => {
-    
+    const user = {
+      id: nextId.current,
+      name,
+      hobby
+    };
+    setUsers([...users, user]);
+
     setInputs({
       name: '',
       hobby: ''
