@@ -4,21 +4,23 @@ import CreateUser from './CreateUser';
 
 function HookApp() {
     // reacthook폴더에 있는 컴포넌트 내용을 보여주는 곳 입니다.
-    const [inputs, setInputs] = useState({
+    const [inputs, setInputs] = useState({ // 이렇게 사용시 useState 한 개 만 사용하여 여러개의 상태관리 가능.
       name: '',
       hobby: ''
     });
-    const { name, hobby } = inputs;
+
+    const { name, hobby } = inputs; // 비구조할당을 사용하여 코드를 사용하기 쉽게 만들어줌.
 
     const onChange = e => {
       const { name, value } = e.target;
       setInputs({
         ...inputs,
-        [name]: value
+        [name]: value // 불변성을 지켜주기위해 사용함. state는 불변성을 지켜줘야하기 때문. 
+
       });
     };
 
-    const [users, setUsers] = useState([ 
+    const [users, setUsers] = useState([ // 관리를 하기위해 useState를 사용 함.
       {
           id: 1,
           name: "hongga",
@@ -40,7 +42,7 @@ function HookApp() {
       name,
       hobby
     };
-    setUsers([...users, user]);
+    setUsers([...users, user]); // 직접적으로 값을 고치게 되면 불변성을 못지켜주기 때문에 spread연산자를 사용해 줍니다.
 
     setInputs({
       name: '',
