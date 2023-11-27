@@ -42,9 +42,13 @@ function HookApp() {
       name,
       hobby
     };
-    setUsers([...users, user]); // 직접적으로 값을 고치게 되면 불변성을 못지켜주기 때문에 spread연산자를 사용해 줍니다.
+    setUsers([...users, user]); 
+    // setUsers(users.concat(user));
+    // 직접적으로 값을 고치게 되면 불변성을 못지켜주기 때문에 spread연산자를 사용해 줍니다.
+    // 불변성을 지켜줘야 하는 이유는 강제로 값을 변화지 렌더링 함수를 사용하지않게 되어 작동이 되지 않습니다.
+    // 그래서 보통 spread를 사용합니다. 또는 concat도 사용이 가능합니다. 기존 배열을 수정하지 않고 새로운 원소를 추가하여 새로운 배열을 만들어 줌.
 
-    setInputs({
+    setInputs({ // 첨에 CreateUser부분에서 등록 버튼을 눌렀을때 초기화가 잘 되는지 확인을 하는 부분.
       name: '',
       hobby: ''
     });
