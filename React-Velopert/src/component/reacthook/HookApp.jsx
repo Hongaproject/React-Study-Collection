@@ -24,12 +24,14 @@ function HookApp() {
       {
           id: 1,
           name: "hongga",
-          hobby: "운동"
+          hobby: "운동",
+          active: true
       },
       {
           id: 2,
           name: "오둥이",
           hobby: "누워있기",
+          active: false
       }
   ]);
   
@@ -62,6 +64,16 @@ function HookApp() {
     setUsers(users.filter(user => user.id !== id));
   }
 
+  const onToggle = (id) => {
+    // 수정도 불변성을 지키면서 업데이트를 시켜야한다.
+    // id 값을 비교해서 id 가 다르다면 그대로 두고, 같다면 active 값을 반전시키도록 구현
+    setUsers(
+      users.map((user) => (
+        user.id === id ? { ...user, active: !user.active } : user
+      ))
+    )
+  }
+
   return (
     <div>
       <br />
@@ -71,7 +83,7 @@ function HookApp() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onRemove={onRemove}/>
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
     </div>
   );
 }
