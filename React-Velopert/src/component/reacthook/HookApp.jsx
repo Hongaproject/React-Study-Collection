@@ -56,6 +56,12 @@ function HookApp() {
     // 수정시 current값을 수정하거나 조회시 조회를 하면 된다. 
   }
 
+  const onRemove = (id) => {
+    // 삭제도 추가처럼 불변성을 지키면서 업데이트를 해야한다.
+    // id를 삭제하게 해줌.
+    setUsers(users.filter(user => user.id !== id));
+  }
+
   return (
     <div>
       <br />
@@ -65,7 +71,7 @@ function HookApp() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users}/>
+      <UserList users={users} onRemove={onRemove}/>
     </div>
   );
 }

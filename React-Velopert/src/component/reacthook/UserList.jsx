@@ -2,16 +2,19 @@ import React from 'react';
 
 // 예를 들어 사용을 함.
 
-function User({user}) { 
+function User({user, onRemove}) { 
     // 컴포넌트로 재사용성을 높히려고 할 때 렌더링 하는 부분과 화면에 보여지는 부분을 따로 사용한다면 재사용성에 도움이 된다.
+
+    // user.id 값을 이용해서 삭제를 하게 만들음. 
     return(
         <div>
-            {user[0].name} {user[0].hobby}
+            {user.name} {user.hobby}
+            <button onClick={() => onRemove(user.id)}>삭제</button>
         </div>
     );
 }
 
-function UserList({users}) {
+function UserList({users, onRemove}) {
     
   return (
     <div>
@@ -23,7 +26,7 @@ function UserList({users}) {
                 // map으로 배열을 렌더링 시켜줍니다.
                 // 이렇게 배열을 렌더링하는 부분과 화면에 출력하는 부분을 따로 작성하게 되면 재사용성에 좋습니다.
                 users.map((user) => (
-                    <User user={user} key={user.id}/>
+                    <User user={user} key={user.id} onRemove={onRemove}/>
                 ))
             }
         </div>
