@@ -16,6 +16,7 @@ function User({user, onRemove, onToggle}) {
     // 마운트시 외부 API 요청 및 라이브러리 사용 setInterval, Timeout등 작업 예약을 할 수 있음
     // 언마운트시 setInterval, Timeout등 작업한 내용 clear 하기 
     
+    
     return(
         <div>
             {/* HookApp에서 users부분 active를 받아와서 색상을 변하게 설정함. */}
