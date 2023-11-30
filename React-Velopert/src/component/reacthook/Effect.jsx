@@ -15,6 +15,12 @@ function Effect() {
         }, 1000); 
     })
 
+    useEffect(() => {
+        setInterval(() => {
+            setTime1(new Date());
+        }, 1000);
+    })
+
     // Interval
     // useRef 사용하는 이유 리액트는 상태값이 변하면 재렌더링을 함
     // 지금 아래 코드도 작동은 하지만 리액트에서 상태값이 변경 할 떄 마다 재렌더링이 되고 있다.
@@ -27,7 +33,7 @@ function Effect() {
         const timer = setInterval(() => {
             setTime2(new Date());
         }, 1000)
-        return () => clearInterval(timer);
+        return () => clearInterval(timer); // clean up 코드
     }, []);
 
     // useRef사용
@@ -41,29 +47,60 @@ function Effect() {
             setTime3(new Date());
         }, 1000)
         return () => clearInterval(timeRef.current);
-    })
+    }, [time3]);
 
     return(
         <div>
-            <h1>{time1.getHours()}:{time1.getMinutes()}:{time1.getSeconds()}</h1>
+            {/* <h1>{time1.getHours()}:{time1.getMinutes()}:{time1.getSeconds()}</h1>
             <h1>{time2.getHours()}:{time2.getMinutes()}:{time2.getSeconds()}</h1>
-            <h1>{time3.getHours()}:{time3.getMinutes()}:{time3.getSeconds()}</h1>
+            <h1>{time3.getHours()}:{time3.getMinutes()}:{time3.getSeconds()}</h1> */}
+            <Interval />
         </div>
     );
 }
 
 function Interval(){
     // 카운터제작 감소카운터 증가카운터 제작 useReducer사용 할 것
+    // 컴포넌트의 state와 props는 계속해서 변화할 수 있는 값이며, 값이 변경시 새로운 값으로 재렌더링이 발생됨
+    // setInterval 함수는 clearInterval로 중지를 시킬 수 있다.
+    const [count1, setCount1] = useState(0);
+    useEffect(() => {
+        const counter = setInterval(() => {
+            setCount1(count1 + 1);
+        })
+        return () => clearInterval(counter);
+    }, [])
+    // deps값을 []로 주게된다면 한 번 만 실행이 되기에 1에서 멈춘다.
+    // []를 하지 않는다면 계속해서 숫자는 증가 될 것 이다.
+
+    // 해결방법
+    // 내부 콜백 사용 
+    const [count2, setCount2] = useState(0);
+    useEffect(() => {
+        const counter = setInterval(() => {
+            setCount2(count2 => count2 + 1); // setState를 사용해서 업데이트 방식
+        }, 1000);
+        return () => clearInterval(counter);
+    }, []); 
+
+    // useRef 사용하기
+    const [count3, setCount3] = useState(0);
+    const counterRef = useRef();
+
+    useEffect(() => {
+        counterRef.current = setInterval(() => {
+            setCount3(count3 + 1); 
+            // setCount3(count3 => count3 + 1) 
+        }, 1000)
+        return () => clearInterval(counterRef.current);
+    }, [count3])
 
     return(
-        <div></div>
-    );
-} 
-
-function Timeout(){
-    // 알림창 제작 
-    return(
-        <div></div>
+        <div>
+            <h1>{count1}</h1>
+            <h1>{count2}</h1>
+            <h1>{count3}</h1>
+        </div>
     );
 } 
 
