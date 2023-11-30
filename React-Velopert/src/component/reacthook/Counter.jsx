@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function HookApp() {
+function Counter() {
     // 리액트 버전 16.8에 도입된 리액트 훅
     // 리액트 훅을 사용하면 동적으로 상태관리를 할 수 있다. (useState)
 
@@ -49,7 +49,13 @@ function Reducer() {
 
 }
 
-export default {HookApp, Reducer}; // 한파일에 여러개 컴포넌트 생성시 export를 할 때 이렇게 하면 된다.
+// https://velog.io/@dianestar/JavaScript-React-React%EC%97%90%EC%84%9C-setInterval%EC%9D%98-%ED%99%9C%EC%9A%A9
+// https://velog.io/@760kry/React%EC%97%90%EC%84%9C-setInterval-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+// https://velog.io/@choco1drink/React-%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94-%EC%B4%88-%EC%B9%B4%EC%9A%B4%ED%8A%B8-%ED%83%80%EC%9D%B4%EB%A8%B8-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+// https://velog.io/@jaewoneee/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%97%90%EC%84%9C-setTimeout-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+
+
+export default Counter; // 한파일에 여러개 컴포넌트 생성시 export를 할 때 이렇게 하면 된다.
 
 
 

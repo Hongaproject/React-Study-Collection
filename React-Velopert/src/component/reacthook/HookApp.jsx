@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
+import Effect from './Effect';
+import { useRef, useState } from 'react';
 
 function HookApp() {
     // reacthook폴더에 있는 컴포넌트 내용을 보여주는 곳 입니다.
@@ -84,6 +85,8 @@ function HookApp() {
         onCreate={onCreate}
       />
       <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
+      <br />
+      <Effect />
     </div>
   );
 }
