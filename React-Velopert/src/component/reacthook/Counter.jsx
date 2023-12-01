@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 
 function Counter() {
     // 리액트 버전 16.8에 도입된 리액트 훅
@@ -22,38 +22,82 @@ function Counter() {
   );
 }
 
-function Reducer() {
+function CounterTest() {
   // Reducer란? redux와 다른점은? 
   // 둘 다 상태관리를 도와주는 방법이며 reducer은 따로 다운없이 사용가능 redux는 따로 다운을 하여 사용을 합니다.
   // reducer(로컬) redux(전역)
   // reducer는 간단한 상태 관리서 사용이 됨 redux는 전역에서 사용이 가능하다 보니 대규모서 많이 사용이된다.
-  const [number, setNumber] = useState(0);
 
+  // const [number, setNumber] = useState(0);
+
+  // const onIncrease = () => {
+  //   setNumber(prevNumber => prevNumber + 1);
+  // };
+
+  // const onDecrease = () => {
+  //   setNumber(prevNumber => prevNumber - 1);
+  // };
+  // // state 사용되는 부분에 사용을 한다.
+
+  // Reducer은  const [number, dispatch] = useReducer(Reducer, initialState)로 사용이되며
+  // 2가지 방식으로 보여주려고한다.
+
+  // 1번 방식
+  const [number, dispatch] = useReducer(Reducer, 0) 
+  
   const onIncrease = () => {
-    setNumber(prevNumber => prevNumber + 1);
-  };
+    dispatch({type: 'Increase'});
+  }
 
   const onDecrease = () => {
-    setNumber(prevNumber => prevNumber - 1);
-  };
+    dispatch({type: 'Decrease'});
+  }
 
-  // state 사용되는 부분에 사용을 한다.
-
+  // 2번 방식
+  const [number1, dispatch] = useReducer(Reducer, initialState);
+  
   return (
     <div>
       <h1>{number}</h1>
       <button onClick={onIncrease}>+1</button>
       <button onClick={onDecrease}>-1</button>
+      <div>
+        {number1.count}
+        <button onClick={() => dispatch({type: 'increase'})}>+1</button>
+        <button onClick={() => dispatch({type: 'decrease'})}>-1</button>
+      </div>
     </div>
   );
 
 }
 
-// https://velog.io/@dianestar/JavaScript-React-React%EC%97%90%EC%84%9C-setInterval%EC%9D%98-%ED%99%9C%EC%9A%A9
-// https://velog.io/@760kry/React%EC%97%90%EC%84%9C-setInterval-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
-// https://velog.io/@choco1drink/React-%EA%B0%90%EC%86%8C%ED%95%98%EB%8A%94-%EC%B4%88-%EC%B9%B4%EC%9A%B4%ED%8A%B8-%ED%83%80%EC%9D%B4%EB%A8%B8-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
-// https://velog.io/@jaewoneee/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%97%90%EC%84%9C-setTimeout-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+// 2번 방식 밖에다가 initialState값을 설정
 
+const initialState = {count: 0}
+
+function Reducer (state, action) {
+
+  // 1번 방식
+  switch(action.type){
+    case 'Increase' :
+      return state + 1;
+    case 'Decrease' :
+      return state - 1;
+    default:
+      return state;
+  }
+
+  // 2번 방식
+  switch(action.type){
+    case 'increase' :
+      return {count: state + 1};
+    case 'decrease' :
+      return {count: state + 1};
+    default:
+      throw new Error()
+
+  }
+}
 
 export default Counter; // 한파일에 여러개 컴포넌트 생성시 export를 할 때 이렇게 하면 된다.
 

@@ -60,7 +60,7 @@ function Effect() {
 }
 
 function Interval(){
-    // 카운터제작 감소카운터 증가카운터 제작 useReducer사용 할 것
+    // 카운터제작 증가카운터 제작 useReducer사용 할 것
     // 컴포넌트의 state와 props는 계속해서 변화할 수 있는 값이며, 값이 변경시 새로운 값으로 재렌더링이 발생됨
     // setInterval 함수는 clearInterval로 중지를 시킬 수 있다.
     const [count1, setCount1] = useState(0);
@@ -103,5 +103,27 @@ function Interval(){
         </div>
     );
 } 
+
+function Reducer() {
+
+    const [t, setT] = useState(0);
+    const tRef = useRef();
+
+    useEffect(() => {
+        const test = setInterval(() => {
+            setT(t => t + 1)
+        })
+        tRef.current = setInterval(() => {
+            setT(t => t + 1)
+        })
+        return () => clearInterval(test);
+        return () => clearInterval(tRef.current);
+    }, []) // Ref사용시 deps값에 값 넣어야함
+
+    // 증가카운터로 응용하기
+    return(
+        <div></div>
+    );
+}
 
 export default Effect;
