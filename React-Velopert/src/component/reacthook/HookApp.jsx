@@ -1,7 +1,13 @@
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 import Effect from './Effect';
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+
+// useMemo, useCallback, React.memo를 사용해서 hook 재사용하는 법 알기
+function countActive(users) {
+  console.log('활용 사용자 수를 알려줍니다.');
+  return users.filter(user => user.active).length; // active 값이 true인 사용자 수를 세어줍니다.
+}
 
 function HookApp() {
     // reacthook폴더에 있는 컴포넌트 내용을 보여주는 곳 입니다.
@@ -74,6 +80,12 @@ function HookApp() {
       ))
     )
   }
+  // 할수가 호출 될 때 콘솔로 알려줍니다.
+  // 이렇게 사용시 input값이 바뀔 때에도 콘솔에 입력이 되기 때문에 자원낭비가 된다.
+  // Memo는 메모이제이션값을 사용하는데 이전 값을 재사용한다는 의미를 가집니다.
+  // const count = countActive(users); 
+  const count = useMemo(() => countActive(users), [users]);
+  // useMemo는 첫번째 부분에 어떤 연산을 정의하고 두번째에서는 deps를 넣어주는데 deps값이 변하게 되면 변경해주고 안변하면 이전 값을 재사용합니다.
 
   return (
     <div>
@@ -87,6 +99,7 @@ function HookApp() {
       <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
       <br />
       <Effect />
+      <span>활성사용자 수 : {count}</span>
     </div>
   );
 }

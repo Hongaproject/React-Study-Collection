@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 
 function Effect() {
     // Effect사용법 및 setInterval, Timeout사용하기.
@@ -121,8 +121,21 @@ function Reducer() {
     }, []) // Ref사용시 deps값에 값 넣어야함
 
     // 증가카운터로 응용하기
+    const [count, dispatch] = useReducer((state, action) => {
+        if(action === "increase"){
+            return state + 1;
+        }
+    }, 0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            dispatch("increase");
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [])
+
     return(
-        <div></div>
+        <div>{count}</div>
     );
 }
 
