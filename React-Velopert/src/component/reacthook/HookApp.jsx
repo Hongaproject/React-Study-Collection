@@ -50,14 +50,14 @@ function HookApp() {
       id: nextId.current,
       name,
       hobby
-    };
+    }; 
     setUsers([...users, user]); 
-    // setUsers(users.concat(user));
-    // 직접적으로 값을 고치게 되면 불변성을 못지켜주기 때문에 spread연산자를 사용해 줍니다.
-    // 불변성을 지켜줘야 하는 이유는 강제로 값을 변화지 렌더링 함수를 사용하지않게 되어 작동이 되지 않습니다.
-    // 그래서 보통 spread를 사용합니다. 또는 concat도 사용이 가능합니다. 기존 배열을 수정하지 않고 새로운 원소를 추가하여 새로운 배열을 만들어 줌.
+    // setUsers(users.concat(user)); 
+    // 직접적으로 값을 고치게 되면 불변성을 못지켜주기 때문에 spread연산자를 사용해 줍니다. 
+    // 불변성을 지켜줘야 하는 이유는 강제로 값을 변화지 렌더링 함수를 사용하지않게 되어 작동이 되지 않습니다. 
+    // 그래서 보통 spread를 사용합니다. 또는 concat도 사용이 가능합니다. 기존 배열을 수정하지 않고 새로운 원소를 추가하여 새로운 배열을 만들어 줌. 
 
-    setInputs({ // 첨에 CreateUser부분에서 등록 버튼을 눌렀을때 초기화가 잘 되는지 확인을 하는 부분.
+    setInputs({ // 첨에 CreateUser부분에서 등록 버튼을 눌렀을때 초기화가 잘 되는지 확인을 하는 부분. 
       name: '',
       hobby: ''
     });
@@ -73,13 +73,14 @@ function HookApp() {
 
   const onToggle = (id) => {
     // 수정도 불변성을 지키면서 업데이트를 시켜야한다.
-    // id 값을 비교해서 id 가 다르다면 그대로 두고, 같다면 active 값을 반전시키도록 구현
+    // id 값을 비교해서 id 가 다르다면 그대로 두고, 같다면 active 값을 반전시키도록 구현 
     setUsers(
       users.map((user) => (
         user.id === id ? { ...user, active: !user.active } : user
       ))
     )
   }
+
   // 할수가 호출 될 때 콘솔로 알려줍니다.
   // 이렇게 사용시 input값이 바뀔 때에도 콘솔에 입력이 되기 때문에 자원낭비가 된다.
   // Memo는 메모이제이션값을 사용하는데 이전 값을 재사용한다는 의미를 가집니다.
