@@ -1,7 +1,7 @@
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 import Effect from './Effect';
-import { useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 
 // useMemo, useCallback, React.memo를 사용해서 hook 재사용하는 법 알기
 function countActive(users) {
@@ -45,7 +45,7 @@ function HookApp() {
    // Ref는 컴포넌트서 특정 DOM을 선택 할 때 사용한다.
    // Ref는 DOM선택 말고도 컴포넌트 안에서 조회 및 수정을 할 수도 있다.
   const nextId = useRef(3);
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       name,
@@ -63,15 +63,15 @@ function HookApp() {
     });
     nextId.current += 1; // sueRef() 사용시 파라미터 넣어주면, 이 값이 기본 값이 됨. (current)
     // 수정시 current값을 수정하거나 조회시 조회를 하면 된다. 
-  }
+  }, [users, name, hobby]);
 
-  const onRemove = (id) => {
+  const onRemove = useCallback((id) => {
     // 삭제도 추가처럼 불변성을 지키면서 업데이트를 해야한다.
     // id를 삭제하게 해줌.
     setUsers(users.filter(user => user.id !== id));
-  }
+  }, [users]);
 
-  const onToggle = (id) => {
+  const onToggle = useCallback((id) => {
     // 수정도 불변성을 지키면서 업데이트를 시켜야한다.
     // id 값을 비교해서 id 가 다르다면 그대로 두고, 같다면 active 값을 반전시키도록 구현 
     setUsers(
@@ -79,7 +79,13 @@ function HookApp() {
         user.id === id ? { ...user, active: !user.active } : user
       ))
     )
-  }
+  }, [users]);
+
+  // useMemo는 특정 결과값을 재사용 할 때 사용하는데 useCallback은 특정 함수를 새로 만들지 않고 재사용 하고 싶을때 사용이 되게 한다.
+  // onCreate ~ onToggle은 컴포넌트가 리렌더링 될 때 마다 새로 만들어짐 
+  // 한 번 만든 함수를 재사용 하는것은 중요함  
+  // callback사용시 함수 안에 props나 상태가 있다면 deps배열안에 포함시켜야 한다.
+
 
   // 할수가 호출 될 때 콘솔로 알려줍니다.
   // 이렇게 사용시 input값이 바뀔 때에도 콘솔에 입력이 되기 때문에 자원낭비가 된다.
