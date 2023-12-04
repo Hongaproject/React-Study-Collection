@@ -82,7 +82,7 @@ function HookApp() {
   }, [users]);
 
   // useMemo는 특정 결과값을 재사용 할 때 사용하는데 useCallback은 특정 함수를 새로 만들지 않고 재사용 하고 싶을때 사용이 되게 한다.
-  // onCreate ~ onToggle은 컴포넌트가 리렌더링 될 때 마다 새로 만들어짐 
+  // 현재 onCreate ~ onToggle은 컴포넌트가 리렌더링 될 때 마다 새로 만들어짐 
   // 한 번 만든 함수를 재사용 하는것은 중요함  
   // callback사용시 함수 안에 props나 상태가 있다면 deps배열안에 포함시켜야 한다.
 

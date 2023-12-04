@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 // 예를 들어 사용을 함.
 
-function User({user, onRemove, onToggle}) { 
+    const User = React.memo(function User({user, onRemove, onToggle}) { 
     // 컴포넌트로 재사용성을 높히려고 할 때 렌더링 하는 부분과 화면에 보여지는 부분을 따로 사용한다면 재사용성에 도움이 된다.
 
     useEffect(() => { 
@@ -34,7 +34,7 @@ function User({user, onRemove, onToggle}) {
             <button onClick={() => onRemove(user.id)}>삭제</button>
         </div>
     );
-}
+});
 
 function UserList({users, onRemove, onToggle}) {
     
