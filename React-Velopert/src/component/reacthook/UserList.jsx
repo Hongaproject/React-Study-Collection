@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
-// 예를 들어 사용을 함.
-
+    // 예를 들어 사용을 함.
     const User = React.memo(function User({user, onRemove, onToggle}) { 
     // 컴포넌트로 재사용성을 높히려고 할 때 렌더링 하는 부분과 화면에 보여지는 부분을 따로 사용한다면 재사용성에 도움이 된다.
 
@@ -15,7 +14,6 @@ import React, { useEffect } from 'react';
 
     // 마운트시 외부 API 요청 및 라이브러리 사용 setInterval, Timeout등 작업 예약을 할 수 있음
     // 언마운트시 setInterval, Timeout등 작업한 내용 clear 하기 
-    
     
     return(
         <div>
@@ -38,6 +36,11 @@ import React, { useEffect } from 'react';
 
 function UserList({users, onRemove, onToggle}) {
     
+    // onRemove, onToggle를 전달하기 위해 중간 다리 역할을 하는 중 
+    // UserList에서는 직접 사용하지 않는다. 나중에 이렇게 props를 전달 해야할 경우 여러 번을 이렇게 해야하기 때문에
+    // Context API와 상태관리 라이브러리를 사용해서 쉽게 사용 할 수 있게 해줍니다.
+    
+
   return (
     <div>
         <div>
