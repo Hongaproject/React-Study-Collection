@@ -1,3 +1,4 @@
+import React from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 import Effect from './Effect';
@@ -8,6 +9,10 @@ function countActive(users) {
   console.log('활용 사용자 수를 알려줍니다.');
   return users.filter(user => user.active).length; // active 값이 true인 사용자 수를 세어줍니다.
 }
+
+// Context API는 Context를 생성해서 전역 상태 관리를 한다.
+// Context안에는 Provider이라는 컴포넌트가 있다
+export const UserDispatch = React.createContext(null);
 
 function HookApp() {
     // reacthook폴더에 있는 컴포넌트 내용을 보여주는 곳 입니다.
@@ -65,6 +70,7 @@ function HookApp() {
     // 수정시 current값을 수정하거나 조회시 조회를 하면 된다. 
   }, [users, name, hobby]);
 
+  // Context API는 onRemove, onToggle를 상태관리를 하려고해서 이 부분을 없애고 useReducer부분에 있던 dispatch부분을 불러서 사용하는 것.
   const onRemove = useCallback((id) => {
     // 삭제도 추가처럼 불변성을 지키면서 업데이트를 해야한다.
     // id를 삭제하게 해줌.
@@ -96,8 +102,9 @@ function HookApp() {
   const count = useMemo(() => countActive(users), [users]);
   // useMemo는 첫번째 부분에 어떤 연산을 정의하고 두번째에서는 deps를 넣어주는데 deps값이 변하게 되면 변경해주고 안변하면 이전 값을 재사용합니다.
 
+
   return (
-    <div>
+    <UserDispatch.Provider value={dispatch}>
       <br />
       <CreateUser 
         name={name}
@@ -109,7 +116,7 @@ function HookApp() {
       <br />
       <Effect />
       <span>활성사용자 수 : {count}</span>
-    </div>
+    </UserDispatch.Provider>
   );
 }
 
