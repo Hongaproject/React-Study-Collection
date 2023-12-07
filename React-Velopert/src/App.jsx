@@ -17,7 +17,7 @@ function App() {
       그래서 virtual DOM을 사용하기로 했고 리액트가 탄생되게 되었습니다. 
       
       <div>
-        <HookApp />
+        {/* <HookApp /> */}
       </div>
     </div>
   );
