@@ -1,5 +1,6 @@
 import React from 'react';
 import HookApp from './component/reacthook/HookApp';
+import Main from './todoList/Main';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       
       <div>
         {/* <HookApp /> */}
+        <Main />
       </div>
     </div>
   );
