@@ -104,7 +104,8 @@ function HookApp() {
 
 
   return (
-    <UserDispatch.Provider value={dispatch}>
+    // value={dispatch}
+    <UserDispatch.Provider>
       <br />
       <CreateUser 
         name={name}
