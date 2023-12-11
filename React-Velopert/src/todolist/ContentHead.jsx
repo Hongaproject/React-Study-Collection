@@ -23,7 +23,8 @@ function ContentHead () {
 
     const entireToDayWeek = `${toDay.getFullYear()}년 ${toDay.getMonth() +1}월 ${toDay.getDate()}일 ${week[toDay.getDay()]}요일`
 
-
+    // Mold -> 가운데 흰색 부분을 보여주는 곳 
+    // Mold의 헤더 부분을 보여줌
 
     return(
         <ContentHeadStyle>

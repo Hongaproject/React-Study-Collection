@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import Mold from './Mold';
 import ContentHead from './ContentHead';
+import Content from './Content';
 
 const GlobalStyle = createGlobalStyle`
     body{
@@ -26,6 +27,7 @@ function Main () {
             <GlobalStyle />
             <Mold>
                 <ContentHead />
+                <Content />
             </Mold>
         </div>
     );
