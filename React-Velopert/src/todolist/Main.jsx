@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import Mold from './Mold';
 import ContentHead from './ContentHead';
 import Content from './Content';
+import ContentCreate from "./ContentCreat;
 
 const GlobalStyle = createGlobalStyle`
     body{
@@ -28,6 +29,7 @@ function Main () {
             <Mold>
                 <ContentHead />
                 <Content />
+                <ContentCreate />
             </Mold>
         </div>
     );

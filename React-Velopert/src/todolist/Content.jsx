@@ -10,7 +10,7 @@ const ContentStyle = styled.div`
 `
 
     // Mold -> 가운데 흰색 부분
-    // Mold의 내용부분을 보여줌 
+    // Mold의 내용부분을 담당 하여 ContentItem으로 내용을 나타냄
 function Content () {
 
     return(
