@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import Mold from './Mold';
 import ContentHead from './ContentHead';
 import Content from './Content';
-import ContentCreate from "./ContentCreat;
+import ContentCreate from "./ContentCreate";
 
 const GlobalStyle = createGlobalStyle`
     body{
