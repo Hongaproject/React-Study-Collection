@@ -11,6 +11,10 @@ const MoldStyle = styled.div`
 
     display: flex;
     flex-direction: column; // inline으로 나타내는 것을 block처럼 나타내준다. 
+
+    position: relative; 
+    margin-top: 96px;
+    margin-bottom: 80px;
 `
 
 function Mold ({children}) {

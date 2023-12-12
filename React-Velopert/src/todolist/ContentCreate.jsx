@@ -82,7 +82,9 @@ function ContentCreate () {
 
     const [open, setOpen] = useState(false); // open을 useState로 관리하여 
 
-    const onToggle = setOpen(!open); 
+    const onToggle = () => {
+      setOpen(!open);
+    } 
     // onClick이벤트를 발생시켜 onToggle이 실행되면 open은 true로 되게 되며 
     // true시 생성을 할 수 있는 input 폼이 나타나게 됩니다.
     return(

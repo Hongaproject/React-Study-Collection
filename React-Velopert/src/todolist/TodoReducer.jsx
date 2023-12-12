@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useReducer } from 'react';
+import React, { createContext, useReducer } from 'react';
 
 
 const initialTodos = [ // 객체를 지정해줌 초기값 설정
@@ -42,11 +42,22 @@ function todoReducer (state, action) {  // 사용될 state와 action을 가져�
     // REMOVE : filter함수를 이용해서 선택된 id제외한 to를 항목에 추가 함.
 }
 
+// state와 dispatch를 사용해서 다른 컴포넌트서 사용되게 한다. Context 생성
+const TodoStateContext = createContext();
+const TodoDispatchContext = createContext();
+
+// Context값 사용시 Provider 컴포넌트를 생성해서 사용해야한다.
+
 function todoProvider ({children}) {
 
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
+
     return(
-        <div>{children}</div>
+        <TodoStateContext.Provider value={state}>
+          <TodoDispatchContext.Provider value={dispatch}>
+            {children}
+          </TodoDispatchContext.Provider>
+        </TodoStateContext.Provider>
     )
 }
 

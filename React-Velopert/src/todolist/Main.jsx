@@ -24,14 +24,14 @@ function Main () {
     // 전체 배경은 styled-components를 사용해서 스타일을 지정해 줄것
 
     return(
-        <div>
+        <>
             <GlobalStyle />
             <Mold>
                 <ContentHead />
                 <Content />
                 <ContentCreate />
             </Mold>
-        </div>
+        </>
     );
 }
 
