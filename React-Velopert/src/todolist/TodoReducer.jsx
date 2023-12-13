@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
+import { useRef } from 'react';
 
 
 const initialTodos = [ // 객체를 지정해줌 초기값 설정
@@ -45,20 +46,47 @@ function todoReducer (state, action) {  // 사용될 state와 action을 가져�
 // state와 dispatch를 사용해서 다른 컴포넌트서 사용되게 한다. Context 생성
 const TodoStateContext = createContext();
 const TodoDispatchContext = createContext();
+const TodoNextIdContext = createContext();
 
 // Context값 사용시 Provider 컴포넌트를 생성해서 사용해야한다.
 
 function todoProvider ({children}) {
 
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
+    const nextId = useRef(5); // 새로운 항목 추가시 사용하는 고유 ID값.
 
     return(
         <TodoStateContext.Provider value={state}>
           <TodoDispatchContext.Provider value={dispatch}>
-            {children}
+            <TodoNextIdContext.Provider value={nextId}>
+              {children}
+            </TodoNextIdContext.Provider>
           </TodoDispatchContext.Provider>
         </TodoStateContext.Provider>
     )
 }
 
 export default todoProvider;
+
+// useContext 편리하게 사용하기 위해 hook 설정
+// 에러처리 해주기 안해도 되지만 에러처리를 해놓으면 개발하면서 어느 곳에서 에러가 났는지를 수월하게 파악 가능.
+
+export function useTodoState() {
+  // eslint-disable-next-line no-undef
+  const context = useContext(TodoStateContext);
+  if (!context) {
+    throw new Error('Cannot find TodoProvider');
+  }
+  return context;
+}
+
+export function useTodoDispatch() {
+  // eslint-disable-next-line no-undef
+  return useContext(TodoDispatchContext);
+}
+
+export function useTodoNextId() {
+  return useContext(TodoNextIdContext);
+}
+
+
