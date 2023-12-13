@@ -3,6 +3,7 @@ import Mold from './Mold';
 import ContentHead from './ContentHead';
 import Content from './Content';
 import ContentCreate from "./ContentCreate";
+import TodoProvider from "./TodoReducer";
 
 const GlobalStyle = createGlobalStyle`
     body{
@@ -23,15 +24,16 @@ function Main () {
     // react-icons와 styled-components라이브러리를 사용 할 것이다.
     // 전체 배경은 styled-components를 사용해서 스타일을 지정해 줄것
 
+    // 모든 곳에서 Todo관련 Context를 사용하기 위해 TodoProvider 감싸줌.
     return(
-        <>
+        <TodoProvider>
             <GlobalStyle />
             <Mold>
                 <ContentHead />
                 <Content />
                 <ContentCreate />
             </Mold>
-        </>
+        </TodoProvider>
     );
 }
 

@@ -50,7 +50,7 @@ const TodoNextIdContext = createContext();
 
 // Context값 사용시 Provider 컴포넌트를 생성해서 사용해야한다.
 
-function todoProvider ({children}) {
+function TodoProvider ({children}) {
 
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
     const nextId = useRef(5); // 새로운 항목 추가시 사용하는 고유 ID값.
@@ -66,7 +66,7 @@ function todoProvider ({children}) {
     )
 }
 
-export default todoProvider;
+export default TodoProvider;
 
 // useContext 편리하게 사용하기 위해 hook 설정
 // 에러처리 해주기 안해도 되지만 에러처리를 해놓으면 개발하면서 어느 곳에서 에러가 났는지를 수월하게 파악 가능.
