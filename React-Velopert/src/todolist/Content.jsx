@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ContentItem from "./ContentItem";
+import { useTodoState } from "./TodoReducer";
 
 const ContentStyle = styled.div`
     flex: 1;
@@ -13,11 +14,22 @@ const ContentStyle = styled.div`
     // Mold의 내용부분을 담당 하여 ContentItem으로 내용을 나타냄
 function Content () {
 
+    // 여기서는 state를 조회하고 보여줍니다
+    // item부분서 변화를 주는 작업을 하려고 합니다.
+    const todos = useTodoState();
+
     return(
         <ContentStyle>
-            <ContentItem text="프로젝트 생성하기" done={true}/>
-            <ContentItem text="컴포넌트 생성 및 스타일링 하기" done={true}/>
-            <ContentItem text="기능 구현하기" done={false}/>
+            {
+                todos.map(todo => (
+                    <ContentItem 
+                        key={todo.id}
+                        id={todo.id}
+                        text={todo.text}
+                        done={todo.done}
+                    />
+                ))
+            }
         </ContentStyle>
     )
 }

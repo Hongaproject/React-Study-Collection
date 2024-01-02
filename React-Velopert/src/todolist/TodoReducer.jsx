@@ -71,7 +71,7 @@ export default TodoProvider;
 // useContext 편리하게 사용하기 위해 hook 설정
 // 에러처리 해주기 안해도 되지만 에러처리를 해놓으면 개발하면서 어느 곳에서 에러가 났는지를 수월하게 파악 가능.
 
-export function useTodoState() {
+export function useTodoState() { // 에러처리
   // eslint-disable-next-line no-undef
   const context = useContext(TodoStateContext);
   if (!context) {
@@ -79,6 +79,10 @@ export function useTodoState() {
   }
   return context;
 }
+
+// export function useTodoState() { // 에러처리를 안한 부분
+//   return useContext(TodoStateContext);
+// }
 
 export function useTodoDispatch() {
   // eslint-disable-next-line no-undef
