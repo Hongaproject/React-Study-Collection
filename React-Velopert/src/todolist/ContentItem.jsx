@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
+import { useTodoDispatch } from './TodoReducer';
 
 const Remove = styled.div`
   display: flex;
@@ -60,19 +61,27 @@ const Text = styled.div`
 
 function ContentItem ({ id, done, text }) {
 
-
     // Mold -> 가운데 흰색 부분
     // Mold의 내용부분의 내용을 보여주는 곳 
 
+    const dispatch = useTodoDispatch(); //dispatch를 사용해서 토글기능과 삭제기능을 구현했습니다.
+
+    const onToggle = () => {
+      dispatch({type: 'TOGGLE', id});
+    }
+    const onRemove = () => {
+      dispatch({type: 'REMOVE', id});
+    }
+
     return(
         <TodoItemBlock>
-            <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+            <CheckCircle done={done} onClick={onToggle}>{done && <MdDone />}</CheckCircle>
             <Text done={done}>{text}</Text>
-            <Remove>
+            <Remove onClick={onRemove}>
                 <MdDelete />
             </Remove>
         </TodoItemBlock>
     );
 }
 
-export default ContentItem;
+export default React.memo(ContentItem);

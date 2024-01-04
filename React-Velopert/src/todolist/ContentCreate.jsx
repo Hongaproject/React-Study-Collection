@@ -1,6 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled, {css} from "styled-components";
 import { MdAdd } from 'react-icons/md';
+import { useTodoDispatch, useTodoNextId } from "./TodoReducer";
 
 const CircleButton = styled.button`
   background: #38d9a9;
@@ -87,13 +88,36 @@ function ContentCreate () {
     } 
     // onClick이벤트를 발생시켜 onToggle이 실행되면 open은 true로 되게 되며 
     // true시 생성을 할 수 있는 input 폼이 나타나게 됩니다.
+
+    const [value, setValue] = useState('');
+
+    const dispatch = useTodoDispatch();
+    const nextId = useTodoNextId();
+
+    const onChange = e => setValue(e.target.value);
+
+    const onSubmit = e => {
+      e.preventDefault(); // 새로고침 방지
+      dispatch({
+        type: 'CREATE',
+        todo: {
+          id: nextId.current,
+          text: value,
+          done: false
+        }
+      });
+      setValue('');
+      setOpen(false);
+      nextId.current += 1;
+    };
+
     return(
         <div>
             {open && (
                 <InsertFormPositioner>
-                <InsertForm>
-                    <Input autoFocus placeholder="할 일을 입력 후, Enter를 누르세요" />
-                </InsertForm>
+                  <InsertForm onSubmit={onSubmit}>
+                    <Input autoFocus placeholder="할 일을 입력 후, Enter를 누르세요" onChange={onChange} value={value}/>
+                  </InsertForm>
                 </InsertFormPositioner>
             )}
             <CircleButton onClick={onToggle} open={open}>
@@ -103,4 +127,4 @@ function ContentCreate () {
     );
 }
 
-export default ContentCreate;
+export default React.memo(ContentCreate);
