@@ -77,6 +77,19 @@ function App() {
       }
       <Route path="/" element={<App2 setPage={setPage} />} />
       <Route path="/main" element={<App3 />} />
+      {/* <Routes>
+        {
+              isPage ? (
+            <>
+             <Route path="/main" element={<App3 />} />
+            </>
+            ) : (
+            <>
+            <Route path="/" element={<App2 setPage={setPage} />} />
+           </>
+         )
+       }      
+      </Routes> */}
     </>
   );
 }
