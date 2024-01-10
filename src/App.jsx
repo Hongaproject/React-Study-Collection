@@ -31,6 +31,7 @@ function App2 ({setPage}) {
   }
 
   const [user, setUser] = useState([]);
+  const navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -41,7 +42,8 @@ function App2 ({setPage}) {
     }).then((res) => {
         setUser(res.data);
         alert("로그인이 되었습니다.")
-        document.location.href = '/main'
+        document.location.href = '/main' // 방법 2
+        navigate('/main') // 방법 3
     }).catch((err) => {
         console.log(err);
     })
@@ -72,12 +74,15 @@ function App() {
   return (  
     <>
       {/* 안녕하세요. <button onClick={onClick}>클릭</button> */}
+      {/* 방법 1 */}
       {
         isPage ? <App2 /> : <App3 />
       }
+      {/* 방법 2 */}
       <Route path="/" element={<App2 setPage={setPage} />} />
       <Route path="/main" element={<App3 />} />
-      {/* <Routes>
+      {/* 방법 3 */}
+      <Routes>
         {
               isPage ? (
             <>
@@ -89,7 +94,7 @@ function App() {
            </>
          )
        }      
-      </Routes> */}
+      </Routes>
     </>
   );
 }
