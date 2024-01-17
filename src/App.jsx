@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
+import Main from './Main';
 
 function App3 () {
 
@@ -73,28 +74,7 @@ function App() {
 
   return (  
     <>
-      {/* 안녕하세요. <button onClick={onClick}>클릭</button> */}
-      {/* 방법 1 */}
-      {
-        isPage ? <App2 /> : <App3 />
-      }
-      {/* 방법 2 */}
-      <Route path="/" element={<App2 setPage={setPage} />} />
-      <Route path="/main" element={<App3 />} />
-      {/* 방법 3 */}
-      <Routes>
-        {
-              isPage ? (
-            <>
-             <Route path="/main" element={<App3 />} />
-            </>
-            ) : (
-            <>
-            <Route path="/" element={<App2 setPage={setPage} />} />
-           </>
-         )
-       }      
-      </Routes>
+      <Main />
     </>
   );
 }
