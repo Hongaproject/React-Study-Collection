@@ -39,10 +39,58 @@ function Main() {
 
   console.log(cookies);
 
+  // const [user, setUser] = useState({ // 이부분서 id와 pw부분을 받음
+  //   id: "",
+  //   password: "",
+  //   nickname: ""
+  // })
+
+  // const {nickname, id, password} = user;
+
+  // const onChange = async (e) => { // 입력받는 부분
+  //   const { name, value } = e.target
+  //   setUser({
+  //     ...user,
+  //     [name]: value,
+  //   })
+  // }
   
+  // // 로그인
+  // const clickLogin = async () => {
+  //   const config = await axios({
+  //     id,
+  //     password,
+  //     nickname,
+  //     method: 'post',
+  //     url: 'http://13.124.168.202:7777/api/v1/users/login',
+  //     data: user, // useState부분에서 id값과 password값을 user로 받아옴
+  //   })
+  //   const { data } = config; // 총 내용을 data로 받아서 연결을 시킴.
+  //   setCookie('accessToken', data.token);
+  // }
+
+  // // 로그아웃
+  // const clickLogout = async () => {
+  //   removeCookie('accessToken')
+  // }
+
   return (  
      <div>
       <button onClick={checkCookie}>(버튼입니다)cookie저장하기</button>
+      {/* <input
+        onChange={onChange}
+        name="email"
+        type="text"
+        placeholder="Enter Ur Email"
+      />
+      <input
+        onChange={onChange}
+        name="pw"
+        type="password"
+        placeholder="Enter Ur pw"
+      />
+      <button onClick={clickLogin}>LOGIN</button>
+      <button onClick={clickLogout}>LOGOUT</button> */}
     </div>
   );
 }
