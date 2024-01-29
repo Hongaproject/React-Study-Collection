@@ -1,5 +1,45 @@
+import { useState } from "react";
 
 function Todo () {
+    // 기능 구현을 위주로 하려고 하며 정보를 찾지 않고 혼자만의 힘으로 제작한다.
+    // CRUD를 넣은 투두리스트 제작
+
+    const [todo, setTodo] = useState([
+        {
+            id: 1,
+            title: '할일1'
+        },
+        {
+            id: 2,
+            title: '할일2'
+        }
+    ])
+
+    return(
+        <div>
+            <TodoCreate />
+            {
+                todo.map((item) => (
+                    <div>
+                        <TodoItem />
+                    </div>
+                ))
+            }
+        </div>
+    );
+}
+
+function TodoItem({}) {
+    
+    return(
+        <div>
+
+        </div>
+    );
+}
+
+function TodoCreate({}) {
+
     return(
         <div>
 
