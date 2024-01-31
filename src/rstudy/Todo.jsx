@@ -18,7 +18,7 @@ function Todo () {
     return(
         <div>
             <h1>투두리스트</h1>
-            <TodoCreate />
+            <TodoCreate setTodo={setTodo} todo={todo} />
             {
                 todo.map((item) => (
                     <div>
@@ -41,12 +41,30 @@ function TodoItem({id, title, setTodo}) {
     );
 }
 
-function TodoCreate() {
+function TodoCreate({setTodo, todo}) {
+
+    const [text, setText] = useState(""); 
+
+    const onChange = (e) => { // input작성시 이벤트를 활성 시키기 위해 사용함.
+        setText(e.target.value);
+    }
+
+    const onSubmit = (e) => { // 내용을 전송하기 위해 사용을 함
+        e.preventDefault(); // 이벤트 새로고침 방지
+        const newTodo = { // 새로운 객체를 생성
+            id: Date.now(),
+            title: text
+        }
+        setTodo([...todo, newTodo]); // spread문법을 사용해서 전에 있던 todo내용을 복사해오고 그 뒤에 newTodo 내용을 넣어준다.
+        setText(""); // 내용을 전달하고 초기화 시키기 
+    }
 
     return(
         <div>
-            <input type="text" placeholder="할 일을 입력해주세요." />
-            <button>등록</button>
+            <form onSubmit={onSubmit}>
+                <input type="text" placeholder="할 일을 입력해주세요." onChange={onChange} value={text}/>
+                <button>등록</button>
+            </form>
         </div>
     );
 }
