@@ -17,11 +17,12 @@ function Todo () {
 
     return(
         <div>
+            <h1>투두리스트</h1>
             <TodoCreate />
             {
                 todo.map((item) => (
                     <div>
-                        <TodoItem />
+                        <TodoItem id={item.id} title={item.title} setTodo={setTodo} />
                     </div>
                 ))
             }
@@ -29,20 +30,23 @@ function Todo () {
     );
 }
 
-function TodoItem({}) {
+function TodoItem({id, title, setTodo}) {
     
     return(
         <div>
-
+            <h3>{title}</h3>
+            <button>수정</button>
+            <button>삭제</button>
         </div>
     );
 }
 
-function TodoCreate({}) {
+function TodoCreate() {
 
     return(
         <div>
-
+            <input type="text" placeholder="할 일을 입력해주세요." />
+            <button>등록</button>
         </div>
     );
 }
