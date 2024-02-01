@@ -17,12 +17,11 @@ function Todo () {
 
     return(
         <div>
-            <h1>투두리스트</h1>
-            <TodoCreate setTodo={setTodo} todo={todo} />
+            <TodoCreate todo={todo} setTodo={setTodo} />
             {
                 todo.map((item) => (
                     <div>
-                        <TodoItem id={item.id} title={item.title} setTodo={setTodo} />
+                        <TodoItem todo={todo} setTodo={setTodo} id={item.id} title={item.title} />
                     </div>
                 ))
             }
@@ -30,39 +29,44 @@ function Todo () {
     );
 }
 
-function TodoItem({id, title, setTodo}) {
-    
+function TodoItem({todo, setTodo, id, title}) {
+  
+    const onDelete = (id) => { // 삭제를 하기 위해 filter를 사용하여 id를 넣음
+        setTodo(todo.filter((item) => item.id !== id));
+    }
+
+
     return(
-        <div>
+       <div>
             <h3>{title}</h3>
             <button>수정</button>
-            <button>삭제</button>
-        </div>
+            <button onClick={() => onDelete(id)}>삭제</button>
+       </div>
     );
 }
 
-function TodoCreate({setTodo, todo}) {
+function TodoCreate({todo, setTodo}) {
 
     const [text, setText] = useState(""); 
 
-    const onChange = (e) => { // input작성시 이벤트를 활성 시키기 위해 사용함.
+    const onChange = (e) => { // input 이벤트를 사용
         setText(e.target.value);
     }
 
-    const onSubmit = (e) => { // 내용을 전송하기 위해 사용을 함
-        e.preventDefault(); // 이벤트 새로고침 방지
-        const newTodo = { // 새로운 객체를 생성
+    const onSubmit = (e) => { // 내용 전달해줄때 사용
+        e.preventDefault(); // 새로고침 방지
+        const newTodo = { // 이미 있는 객체에 새로운 객체를 넣어주기 위해 사용
             id: Date.now(),
             title: text
         }
-        setTodo([...todo, newTodo]); // spread문법을 사용해서 전에 있던 todo내용을 복사해오고 그 뒤에 newTodo 내용을 넣어준다.
-        setText(""); // 내용을 전달하고 초기화 시키기 
-    }
+        setTodo([...todo, newTodo]); // spread를 사용하여 기존 객체 복사해오고 그 뒤에 새로운 newTodo라는 객체를 생성해준다.
+        setText(""); // 전달 후 초기화 되게 함.
+    } 
 
     return(
         <div>
             <form onSubmit={onSubmit}>
-                <input type="text" placeholder="할 일을 입력해주세요." onChange={onChange} value={text}/>
+                <input type="text" placeholder="할 일을 입력하세요." onChange={onChange} value={text} />
                 <button>등록</button>
             </form>
         </div>
