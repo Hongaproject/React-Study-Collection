@@ -35,12 +35,44 @@ function TodoItem({todo, setTodo, id, title}) {
         setTodo(todo.filter((item) => item.id !== id));
     }
 
+    const [isUpdate, setIsUpdate] = useState(false);
+    const [newText, setNewText] = useState(title);
+
+    const onChange = (e) => {
+        setNewText(e.target.value);
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const updateTodo = todo.map((data) => { // todo 내용을 map으로 가져오고
+            if(data.id === id){ // id가 같다면
+                data.title = newText; // title를 newText로 변경해달라
+            }
+            return data;
+        })
+        setTodo(updateTodo); // 바뀐 부분 setTodo에 저장된다.
+        setIsUpdate(false);
+    }
 
     return(
        <div>
-            <h3>{title}</h3>
-            <button>수정</button>
-            <button onClick={() => onDelete(id)}>삭제</button>
+            {
+                !isUpdate ? (
+                    <div>
+                        <h3>{title}</h3>
+                        <button onClick={() => setIsUpdate(true)}>수정</button>
+                        <button onClick={() => onDelete(id)}>삭제</button>
+                    </div>
+                ) : (
+                    <div>
+                        <form onSubmit={onSubmit}>
+                            <input type="text" onChange={onChange} value={newText} />
+                            <button >등록</button>
+                            <button onClick={() => setIsUpdate(false)}>취소</button>
+                        </form>
+                    </div>
+                )
+            }
        </div>
     );
 }
