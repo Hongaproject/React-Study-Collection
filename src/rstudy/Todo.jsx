@@ -30,13 +30,15 @@ function Todo () {
 }
 
 function TodoItem({todo, setTodo, id, title}) {
-  
+    
+    // 삭제
     const onDelete = (id) => { // 삭제를 하기 위해 filter를 사용하여 id를 넣음
         setTodo(todo.filter((item) => item.id !== id));
     }
 
-    const [isUpdate, setIsUpdate] = useState(false);
-    const [newText, setNewText] = useState(title);
+    // 수정
+    const [isUpdate, setIsUpdate] = useState(false); // 삼항연산자를 사용하여 구현
+    const [newText, setNewText] = useState(title); // title부분을 가져와 입력
 
     const onChange = (e) => {
         setNewText(e.target.value);
