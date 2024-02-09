@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import Todo from './rstudy/Todo';
@@ -64,44 +64,17 @@ import Todo from './rstudy/Todo';
 //   );
 // }
 
-// 리렌더링 최적화 부분 작업 
-
-function First ({number}) {
-  console.log("number rendering...");
-  return(
-    <div>
-      <h1>First CP {number}</h1>
-    </div>
-  );
-}
-
-function Second ({onClick}) {
-  console.log("second rendering...");
-
-  return(
-    <div>
-      <h1>Second CP</h1>
-      <button onClick={onClick}>Second click</button>
-    </div>
-  );
-}
 
 function App() {
 
-  const [number, setNumber] = useState(0); // 버튼 클릭시 state값이 변경되면서 리렌더링 발생
 
-  const onClick = () => {
-    console.log("click");
-  }
 
   return (  
     <>
       <h1>안녕하세요.</h1>
-      <button onClick={()=> setNumber(number + 1)}>APP 클릭</button> 
-      <First number={number}/>
-      <Second onClick={onClick}/>
+
     </>
   );
 }
 
-export default App;
+export default React.memo(Second);

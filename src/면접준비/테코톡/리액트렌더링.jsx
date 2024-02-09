@@ -25,11 +25,64 @@ export default a;
 
 // 리렌더링 최적화 참조 값이 안변하게 만들면 불필요한 렌더링을 방지 할 수 있음.
 // React.memo, useCallback을 사용하면 최적화를 할 수 있음 (객체 말고)
-// https://ttaerrim.tistory.com/48
-
-
-
-
 // 객체일때는 useMemo를 사용해주면 된다.
-// https://victory-ju.tistory.com/entry/React-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%A0%8C%EB%8D%94%EB%A7%81-%EC%B5%9C%EC%A0%81%ED%99%94%EC%97%90%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-with-useMemo-useCallback-Reactmamo
 
+// 리렌더링 최적화 부분 작업 
+
+function First ({number}) {
+    console.log("number rendering...");
+    return(
+      <div>
+        <h1>First CP {number}</h1>
+      </div>
+    );
+  }
+  
+  function Second ({onClick}) {
+    console.log("second rendering...");
+  
+    return(
+      <div>
+        <h1>Second CP</h1>
+        <button onClick={onClick}>Second click</button>
+      </div>
+    );
+  }
+  
+  export default React.memo(Second);
+  
+  
+  function App() {
+  
+    const [number, setNumber] = useState(0); // 버튼 클릭시 state값이 변경되면서 리렌더링 발생
+  
+    const onClick = useCallback(() => { // 콜백을 사용하여 참조값을 가지게 함.
+      console.log("click");
+    }, []);
+    // 하지만 useCallback을 사용했다고 해서 리렌더링이 안일어나지 않는다.
+  
+    // 이유는 렌더링 프로세스르 알아야한다.
+    // 1. state와 props 값이 변경되었을 때
+    // 2. Render Phase 변경이 필요한 부분
+    // 3. Commit Phase 변경을 직접 한다.
+  
+  
+    const profileObj = {
+      nane: "홍가",
+      age: 27
+    }
+  
+    const memoProfileObj = useMemo(()=> profileObj, []);
+    // useCallback과 다르게 useMemo는 호출 결과값을 기억하기 때문에 리렌더링이 되징 않는다.
+  
+    return (  
+      <>
+        <h1>안녕하세요.</h1>
+        <button onClick={()=> setNumber(number + 1)}>APP 클릭</button> 
+        <First number={number}/>
+        <Second onClick={onClick} memoProfileObj={memoProfileObj}/>
+      </>
+    );
+  }
+  
+  export default App;
