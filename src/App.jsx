@@ -77,4 +77,4 @@ function App() {
   );
 }
 
-export default React.memo(Second);
+export default App;
