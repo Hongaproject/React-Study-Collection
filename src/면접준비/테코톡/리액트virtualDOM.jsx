@@ -25,5 +25,5 @@
 
 // virtual DOM 갱신 방법 2가지
 // setState() 메서드를 호출한다.
-// Redux경우 store가 변하면 최상위 컴포넌트의 render()함수를 호출하여 갱신하는 방법.
+// Redux경우 store가 변하면서 최상위 컴포넌트의 render()함수를 호출하여 갱신하는 방법.
 
