@@ -25,7 +25,7 @@
 // 전역 상태관리 라이브러리를 사용하면 store가 변경 될 때 마다 render()를 호출하여 갱신 시킨다.
 
 // SPA, CSR, SSR 설명
-// SPA는 싱글 페이지 어플리케이션이며 처음 로드시 전체페이지를 로드 시키고 페이지 사용시 변경된 부분만 새로고침을 진행이 되여 사용자에게 보기 좋은 페이지를 제공해줍니다.
+// SPA는 싱글 페이지 어플리케이션이며 전체페이지를 다시 로드할 필요없이 변경된 부분들만 동적으로 업데이트하는 어플리케이션 입니다. 새로고침이 일어나지않아 사용자에게 보기 좋은 페이지를 제공해줍니다.
 // CSR는 클라이언트 측 브라우저에서 JavaScript를 사용하여 서버에서 필요한 데이터를 가져오고
 // SSR은 서버에서 사용자에게 보여줄 페이지를 모두 미리 구성한 뒤 페이지를 렌더링을 하는 방식이며, 
 // 이러한 방식은 페이지가 처음 로드될 때 컨텐츠가 검색 엔진에 표시되어 더 빠른 로드 시간과 더 나은 SEO를 제공합니다. 
@@ -42,8 +42,10 @@
 // 페이지 이동시에는 csr이 ssr보다 더 부드럽다고다는 장점이 있습니다.
 //  csr은 처음 로딩때 자원을 다 받아오고 ssr은 페이지 이동할 떄 마다 서버에서 렌더링이 일어나기 때문에 화면 깜빡임이 있습니다.
 
-// https://engineerinsight.tistory.com/325#%F0%9F%92%8B%C2%A0Server-Side%20Rendering-1
+// https://friedegg556.tistory.com/180             SPA 설명 
+// https://velog.io/@rookieand/CSR-SSR-SPA-MPA-%EC%9D%B4%EA%B2%83%EB%93%A4%EC%9D%80-%EB%AD%98%EA%B9%8C#1-spa-single-page-application
 // https://engineerinsight.tistory.com/325
+// https://babycoder05.tistory.com/entry/%EB%A6%AC%EC%95%A1%ED%8A%B8%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0-SPA-CSR-SSR
 
 // React hooks?
 // 16.8 버전에 도입된 기능이며 클래스 컴포넌트에서 사용되던 라이프사이클, 상태관리를 사용할 수 있게 되었다.
