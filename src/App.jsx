@@ -3,6 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import Todo from './rstudy/Todo';
+import CounterCt from './redux/CounterCt';
 
 // function App3 () {
 
@@ -67,12 +68,10 @@ import Todo from './rstudy/Todo';
 
 function App() {
 
-
-
   return (  
     <>
       <h1>안녕하세요.</h1>
-
+      <CounterCt />
     </>
   );
 }
