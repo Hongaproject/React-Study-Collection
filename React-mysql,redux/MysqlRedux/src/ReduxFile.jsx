@@ -17,7 +17,14 @@ const ReduxFile = () => {
             장점 : 상태관리가 쉽다. 프로젝트가 커질수록 사용하기 좋다.
             단점 : 어렵다. 리덕스를 유용하게 사용하려면 패키지를 추가 해야한다. 
             
+            Flux 패턴 : 사용자 입력 기반으로 Action을 만듬, Action을 Dispatcher에 전달하고 store의 데이터를 변경한 뒤, View에 반영합니다.
+            원래 MVC모델을 사용했었는데 SPA가 발전이 되면서 웹 애플리케이션이 복잡해져 MVC의 복잡도를 해결하기 위해 Flux 패턴이 나타나게 되었습니다.
 
+            Redux의 3대 원칙
+            single source of truth: 앱 전체에서 상태 관리 저장소는 단일 저장소로 존재한다.
+            state is read-only: 상태를 변경하는 방법은 action을 reducer에 전파하는 것이 유일하다.
+            changes are made with pure functions: 상태 변경 로직을 정의하는 리듀서들은 순수함수로 작성되어야 한다.
+            
         </div>
     );
 }
