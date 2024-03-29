@@ -1,2 +1,5 @@
 // 노마드코더 redux 강의 내용 정리하기
 // 순수 바닐라 JS를 사용해서 리덕스 이용해보기
+
+// 벨로퍼트 리덕스도 함께 공부 진행.
+// 리덕스에는 Action, Action Creator, Reducer, store, dispatch, subscribe등 여러가지 키워드가 있다.

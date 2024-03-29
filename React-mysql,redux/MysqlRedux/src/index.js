@@ -14,7 +14,7 @@ const number = document.querySelector("span");
 
 number.innerText = 0;
 
-const countModify = (count = 0, action) => { // 함수로 받아옴.
+const countModify = (count = 0, action) => { // 함수로 받아옴. reducer은 initialState, action 되어있음 
   // count++ count-- 는 action을 통해서 진행을 시킨다.
   // Action : redux에서 function을 부를 때 쓰는 두 번째 parameter 혹은 argument으로 reducer와 소통하기 위한 방법
   // Reducer에게 Action을 보내는 방법 : store.dispatch({key: value});
@@ -27,15 +27,16 @@ const countModify = (count = 0, action) => { // 함수로 받아옴.
   }
 };
 
-const countStore = createStore(countModify); // store을 만들면 reducer를 만들어달라고 요청함.
+// store은 data를 저장하는 곳 createStore로 만들어주고 거기서 countModify를 사용한다
+const countStore = createStore(countModify); // store을 만들면 reducer를 만들어달라고 요청함. -> countModify
 
 const onChange = () => {
-    number.innerText = countStore.getState();
+    number.innerText = countStore.getState(); 
   }
-countStore.subscribe(onChange);
+countStore.subscribe(onChange); // subscribe는 store안에 있는 변화를 알 수 있게 도와준다. 
   
 // countStore.dispatch({ type: "Add" }); // dispatch를 사용해 action을 취함. action은 무조건 object와 type으로 받아야함
-add.addEventListener("click", () => countStore.dispatch({ type: "Add" })); 
+add.addEventListener("click", () => countStore.dispatch({ type: "Add" }));  // 버튼과 연결하기.  
 minus.addEventListener("click", () => countStore.dispatch({ type: "Minus" }));
 
 // let count = 0; 
