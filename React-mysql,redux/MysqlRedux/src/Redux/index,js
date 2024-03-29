@@ -3,3 +3,10 @@
 
 // 벨로퍼트 리덕스도 함께 공부 진행.
 // 리덕스에는 Action, Action Creator, Reducer, store, dispatch, subscribe등 여러가지 키워드가 있다.
+// Action : 상태에 변화가 필요할 때 액션을 발생시킴. 하나의 객체로 표현됨. type을 필수로 넣어줘서 사용해야함.
+// Action Creator : 액션을 만드는 함수로 사용 됨. 주로 export를 앞에 붙혀서 다른 파일에 불러와 사용함.
+// Reducer : 변화를 일으키는 함수. 두 가지 파라미터를 받아 옴. (state, action) 으로 사용됨 
+// store : 리덕스는 한 애플리케이션당 하나의 스토어를 만들게 된다. 
+// dispatch : 스토어 내장함수 중 하나. 디스패치를 사용해서 액션을 발생 시킨다. dispatch(action)이렇게 사용이 되며 
+// subscribe : 스토어 내장함수 중 하나. 스토어에 내용 변화를 감지 할 수 있음.
+
