@@ -10,3 +10,7 @@
 // dispatch : 스토어 내장함수 중 하나. 디스패치를 사용해서 액션을 발생 시킨다. dispatch(action)이렇게 사용이 되며 
 // subscribe : 스토어 내장함수 중 하나. 스토어에 내용 변화를 감지 할 수 있음.
 
+// 리덕스 3가지 규칙
+// 1. single source of truth: 앱 전체에서 상태 관리 저장소는 단일 저장소로 존재한다.
+// 2. state is read-only: 상태를 변경하는 방법은 action을 reducer에 전파하는 것이 유일하다.
+// 3. changes are made with pure functions: 상태 변경 로직을 정의하는 리듀서들은 순수함수로 작성되어야 한다.
