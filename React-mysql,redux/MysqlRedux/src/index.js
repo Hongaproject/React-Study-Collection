@@ -14,6 +14,10 @@ const number = document.querySelector("span");
 
 number.innerText = 0;
 
+// 이렇게 지정해서 사용을 하면 string 형식으로 사용이 가능하다.
+const ADD = "Add"; 
+const MINUS = "Minus";
+
 // countModify는 현재 상태의 어플리케이션과 함께 불려지는 함수이다. 현재 상태가 없다면 0으로 끝남. 그리고 action을 불러옴
 // action은 countModify와 소통하는 방식 reducer이 리턴하는 것은 무엇이든지 어플리케이션의 state가 되는 것
 // reducer은 current state와 action과 함께 불러짐 dispatch를 사용해서 action으로 보내 줌 action은 항상 object와 type이여야 한다.
@@ -21,6 +25,7 @@ const countModify = (count = 0, action) => { // 함수로 받아옴. reducer은 
   // count++ count-- 는 action을 통해서 진행을 시킨다.
   // Action : redux에서 function을 부를 때 쓰는 두 번째 parameter 혹은 argument으로 reducer와 소통하기 위한 방법
   // Reducer에게 Action을 보내는 방법 : store.dispatch({key: value});
+
   if (action.type === "Add"){ // 나는 switch문 보다 if문이 더 편해서 if문을 사용함.
     return count + 1;
   } else if (action.type === "Minus"){
@@ -28,6 +33,15 @@ const countModify = (count = 0, action) => { // 함수로 받아옴. reducer은 
   } else{
     return count;
   }
+  // switch 문으로 사용하는 것도 가능. - 첫 번째 개선방안
+  // switch(action.type){
+  //   case "Add":
+  //     return count + 1;
+  //   case "Minus":
+  //     return count - 1;
+  //   default:
+  //     return count;
+  // }
 };
 
 // store은 data를 저장하는 곳 createStore로 만들어주고 거기서 countModify를 사용한다
