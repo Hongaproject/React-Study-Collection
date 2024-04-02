@@ -12,3 +12,29 @@
 // 3. 액션타입 정의할 때 reducer/ACTION_TYPE형태로 적어줘야 한다. 접두사를 사용하는 이유는, 서로 다른 리듀서에서 액션이름이 중첩되는것을 방지 하기 위해서 사용함.
 
 // 리듀서 제작 부분
+// 액션타입 작성 -> 'count/INCREASE 이런식으로 접두사를 두어 중복을 막아준다. 
+const INCREASE = 'count/INCREASE';
+const DECREASE = 'count/DECREASE';
+
+// 액션생성 함수  
+export const increase = () => ({ typeof: INCREASE }); 
+// export const increase1 = () => {
+//     return {typeof : INCREASE};
+// } 
+export const decrease = () => ({ typeof: DECREASE });
+
+// reducer state 초기값 설정하기
+const initialState = 0;
+
+// redecer 생성 
+export default function Count (state = initialState, action) {
+    switch(action.type) {
+        case INCREASE :
+            return state + 1;
+        case DECREASE :
+            return state -1;
+        default:
+            return state;
+    }
+
+}
