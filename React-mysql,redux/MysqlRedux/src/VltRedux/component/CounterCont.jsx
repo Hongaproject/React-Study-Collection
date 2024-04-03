@@ -25,3 +25,5 @@ function CounterCont() {
         <Counter number={number} onIncrease={onIncrease} onDecrease={onDecrease} />
     );
 }
+
+export default CounterCont;

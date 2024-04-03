@@ -17,11 +17,11 @@ const INCREASE = 'count/INCREASE';
 const DECREASE = 'count/DECREASE';
 
 // 액션생성 함수  
-export const increase = () => ({ typeof: INCREASE }); 
+export const increase = () => ({ type: INCREASE }); 
 // export const increase1 = () => {
 //     return {typeof : INCREASE};
 // } 
-export const decrease = () => ({ typeof: DECREASE });
+export const decrease = () => ({ type: DECREASE });
 
 // reducer state 초기값 설정하기
 const initialState = 0;
