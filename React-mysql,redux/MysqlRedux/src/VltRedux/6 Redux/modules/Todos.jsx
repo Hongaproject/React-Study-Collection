@@ -31,9 +31,10 @@ const initialState = [
 export default function Todos (state = initialState, action) {
     switch(action.type){
         case ADD_TODO:
-            return state.concat(action.todo);
+            return state.concat(action.todo); // concat은 배열을 연결해 줌. 
         case TOGGLE_TODO:
-            return state.map((todo) => (todo.id === action.id ? { ...todo, done: !todo.done} : todo));
+            return state.map((todo) => (todo.id === action.id ? { ...todo, done: !todo.done} : todo)); 
+            // todo가 일치한다면 todo를 반전 시키고 todo가 일치하지 않는 다면 그대로 둔다.
         default:
             return state;
     }
