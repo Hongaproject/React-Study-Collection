@@ -1,8 +1,9 @@
 import React from 'react';
-import CounterCont from './VltRedux/component/CounterCont';
+import CountCont from './VltRedux/6 Redux/component/CountCont';
+import CounterCont from './VltRedux/7 Redux mid/component/CounterCont';
 
 function App() {
-  return <CounterCont />
+  return <CountCont />
 }
 
 export default App;

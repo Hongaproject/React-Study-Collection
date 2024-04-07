@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { legacy_createStore as createStore } from "redux";
 import { Provider } from 'react-redux';
-import rootReducer2 from './modules';
+import rootReducer2 from './VltRedux/6 Redux/modules';
 
 // 루트 리듀서 불러와서 사용하여 Provider을 사용하여 프로젝트에 적용 함.
 
