@@ -80,6 +80,8 @@
 
 // // 리덕스의 방식을 알기위해 코드를 작성함
 
+// 이 부분을 index.js부분에 작성하면 코드가 실행된다.
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -100,5 +102,3 @@ root.render(
 );
 
 // 이 부분을 index.js부분에 작성하면 코드가 실행된다.
-
-
