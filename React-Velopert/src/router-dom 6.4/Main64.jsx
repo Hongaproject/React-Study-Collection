@@ -4,6 +4,7 @@ import Home64 from "./routes/Home64";
 import Write64 from "./routes/Write64";
 import Login64 from "./routes/Login64";
 import Diary64 from "./routes/Diary64";
+import Error64 from "./routes/Error64";
 
 export default function Main64 () {
     
@@ -12,6 +13,7 @@ export default function Main64 () {
         {
             path:"/",
             element: <Layout64 />,
+            errorElement: <Error64 />,
             children: [
                 {
                     path: "",
