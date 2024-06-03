@@ -8,8 +8,8 @@ export default function ErrPage() {
     return (
         <div id="error-page">
             <h1>Error!</h1>
-            <p>Sorry, an unexpected error has occurred.</p>
             <p>
+                <i>{err.status}</i>
                 <i>{err.statusText || err.message}</i>
             </p>
             <button onClick={()=> navigator("/")}>Home</button>
