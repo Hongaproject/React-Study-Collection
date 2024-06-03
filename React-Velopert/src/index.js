@@ -1,15 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+// App파일 작동 시킬 때 필요한 소스 코드
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root')); // 브라우저에 있는 실제 DOM내부에 리액트 컴포넌트를 렌더링 한다는 뜻.
-root.render(
+// const root = ReactDOM.createRoot(document.getElementById('root')); // 브라우저에 있는 실제 DOM내부에 리액트 컴포넌트를 렌더링 한다는 뜻.
+// root.render(
 
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
+
+// // If you want to start measuring performance in your app, pass a function
+// // to log results (for example: reportWebVitals(console.log))
+// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
+
+// src내용 사용 할 때 필요한 소스코드
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import "./index.css";
+import Root from "./routes/root";
+import ErrPage from "./ErrPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrPage />
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
