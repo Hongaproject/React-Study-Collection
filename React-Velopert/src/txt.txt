@@ -1,0 +1,16 @@
+리액트 라우터 돔 6.4에 등장한 data API 사용해보기
+
+loader, actions, fetchers
+
+loader : 컴포넌트가 생성되기 전에 컴포넌트에 데이터를 전달해줍니다.
+actions : url에 form과 같은 리퀘스트를 보낼 때 데이터를 처리해줍니다.
+fetchers : url을 변경하지 않고, 요청한 url에 데이터를 요청해준다.
+
+loader는 파일에 loader이라는 함수를 생성한 뒤 export하여 사용하는 것이 일반적입니다.
+loader함수가 값을 리턴하면 useLoaderData()로 컴포넌트에서 데이터를 받아올 수 있습니다.
+GET을 사용하면 loader함수가 호출됩니다.
+
+actions은 HTML form을 이용하여 데이터를 전송해서 처리를 해준다.
+<form> 이 태그는 html 폼이고 - 사용시 서버에 리퀘스트를 보냅니다.
+<Form> 이 태그는 react router 폼입니다. - 사용시 클라이언트 측에 리퀘스트를 보냅니다. 
+POST를 사용하면 action이 호출됩니다.
