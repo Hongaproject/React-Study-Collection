@@ -1,8 +1,8 @@
 import { Form, useLoaderData } from "react-router-dom";
-import { getContact } from "../Contacts";
+import { getContacts } from "../Contacts";
 
 export async function loader({params}) {
-    return getContact(params.contactId);
+    return getContacts(params.contactId);
 }
 
 export default function Contact() {
@@ -25,6 +25,19 @@ export default function Contact() {
           )}{" "}
           <Favorite contact={contact} />
         </h1>
+
+        {contact.github && (
+          <p>
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href={`https://github.com/${contact.github}`}
+            >
+              {contact.github}
+            </a>
+          </p>
+        )}
+
 
         {contact.notes && <p>{contact.notes}</p>}
 
