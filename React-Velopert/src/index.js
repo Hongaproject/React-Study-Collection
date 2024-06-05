@@ -15,19 +15,15 @@
 // // to log results (for example: reportWebVitals(console.log))
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
-
 // src내용 사용 할 때 필요한 소스코드
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Root, {loader as rootLoader , action as rootAcion} from "./routes/root";
+import Root, { loader as rootLoader, action as rootAcion } from "./routes/root";
 import ErrPage from "./ErrPage";
-import Contact, {loader as contactLoader} from "./routes/contact";
-import EditContact from "./routes/edit";
+import Contact, { loader as contactLoader } from "./routes/contact";
+import EditContact, { action as editAction } from "./routes/edit";
 
 const router = createBrowserRouter([
   {
@@ -37,16 +33,17 @@ const router = createBrowserRouter([
     loader: rootLoader,
     action: rootAcion,
     children: [
-        {
-            path: "contacts/:contactId",
-            element: <Contact />,
-            loader: contactLoader,
-        },
-        {
-          path: "contacts/:contactId/edit",
-          element: <EditContact />,
-          loader: contactLoader,
-        },
+      {
+        path: "contacts/:contactId",
+        element: <Contact />,
+        loader: contactLoader,
+      },
+      {
+        path: "contacts/:contactId/edit",
+        element: <EditContact />,
+        loader: contactLoader,
+        action: editAction,
+      },
     ],
   },
 ]);
@@ -56,4 +53,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-

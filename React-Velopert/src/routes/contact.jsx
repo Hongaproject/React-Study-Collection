@@ -26,19 +26,6 @@ export default function Contact() {
           <Favorite contact={contact} />
         </h1>
 
-        {contact.github && (
-          <p>
-            <a
-              target="_blank"
-              rel="noreferrer noopener"
-              href={`https://github.com/${contact.github}`}
-            >
-              {contact.github}
-            </a>
-          </p>
-        )}
-
-
         {contact.notes && <p>{contact.notes}</p>}
 
         <div>

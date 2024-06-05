@@ -1,11 +1,18 @@
-import { Form, useLoaderData } from "react-router-dom";
-import { getContact } from "../Contacts";
+import { Form, useLoaderData, redirect } from "react-router-dom";
+import { getContact, updateContact } from "../Contacts";
+
+export async function action({ request, params }) {
+  const formData = await request.formData();
+  const updates = Object.fromEntries(formData);
+  await updateContact(params.contactId, updates);
+  return redirect(`/Contacts/${params.contactId}`);
+}
 
 export function loader({ params }) {
   return getContact(params.contactId);
 }
 
-export default function EditContact() {
+export default function Edit() {
   const contact = useLoaderData();
 
   return (
@@ -27,15 +34,6 @@ export default function EditContact() {
           defaultValue={contact.last}
         />
       </p>
-      <label>
-        <span>Github</span>
-        <input
-          type="text"
-          name="github"
-          placeholder="id입력"
-          defaultValue={contact.github}
-        />
-      </label>
       <label>
         <span>Avatar URL</span>
         <input
