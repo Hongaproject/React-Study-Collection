@@ -7,16 +7,20 @@ export default function Study1 () {
         { no: 3, area: "목포", visited: false },
         { no: 4, area: "제주도", visited: false },
     ];
+    
+    const items = list.map((item) => {
+        return (
+            <li key={item.no} className={item.visited ? 'active' : null}>{item.area}</li>
+        )
+    });
 
-    return(
-        <div>
-            {
-                list.map((item) => (
-                    <div className={item.visited ? 'active' : null}>
-                        {item.area}
-                    </div>
-                ))
-            }
-        </div>
-    );
+    return (
+        <ul className='list-area'>
+            {items}
+            {/* <li className={list[0].visited ? 'active' : null}>{list[0].area}</li>
+            <li className={list[1].visited ? 'active' : null}>{list[1].area}</li>
+            <li className={list[2].visited ? 'active' : null}>{list[2].area}</li>
+            <li className={list[3].visited ? 'active' : null}>{list[3].area}</li> */}
+        </ul>
+    )
 }
