@@ -6,6 +6,7 @@ import Feelings from "./ESTsoftFE/0819/feelList/Feelings";
 import Resume2 from "./ESTsoftFE/0819/Resume2";
 import AnimalApp from "./ESTsoftFE/0820/AnimalApp";
 import UserApp from "./ESTsoftFE/0820/UserApp";
+import RouterApp from "./ESTsoftFE/0821/RouterApp";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Feelings />
       <UserApp />
       <AnimalApp />
+      <RouterApp />
       {/* <Study1 />
       <Hello name="개리"/>
       <Time />
