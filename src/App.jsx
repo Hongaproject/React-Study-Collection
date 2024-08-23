@@ -7,6 +7,7 @@ import Resume2 from "./ESTsoftFE/0819/Resume2";
 import AnimalApp from "./ESTsoftFE/0820/AnimalApp";
 import UserApp from "./ESTsoftFE/0820/UserApp";
 import RouterApp from "./ESTsoftFE/0821/RouterApp";
+import StyledC from "./ESTsoftFE/0822/StyledC";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <UserApp />
       <AnimalApp />
       <RouterApp />
+      <StyledC />
       {/* <Study1 />
       <Hello name="개리"/>
       <Time />
