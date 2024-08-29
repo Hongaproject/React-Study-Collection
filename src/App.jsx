@@ -8,6 +8,7 @@ import AnimalApp from "./ESTsoftFE/0820/AnimalApp";
 import UserApp from "./ESTsoftFE/0820/UserApp";
 import RouterApp from "./ESTsoftFE/0821/RouterApp";
 import StyledC from "./ESTsoftFE/0822/StyledC";
+import "./App.css";
 
 export default function App() {
   return (
@@ -18,6 +19,9 @@ export default function App() {
       <AnimalApp />
       <RouterApp />
       <StyledC />
+      <div className="f">
+        <div>안녕하세요.</div>
+      </div>
       {/* <Study1 />
       <Hello name="개리"/>
       <Time />
