@@ -9,11 +9,12 @@ import UserApp from "./ESTsoftFE/0820/UserApp";
 import RouterApp from "./ESTsoftFE/0821/RouterApp";
 import StyledC from "./ESTsoftFE/0822/StyledC";
 import "./App.css";
+import UseState from "./ESTsoftFE/Study/UseState";
 
 export default function App() {
   return (
     <div>
-      <Resume2 hello="안녕하세요" name="개리" hobby="게임" food="고기" color="blue"/>
+      {/* <Resume2 hello="안녕하세요" name="개리" hobby="게임" food="고기" color="blue"/>
       <Feelings />
       <UserApp />
       <AnimalApp />
@@ -21,7 +22,7 @@ export default function App() {
       <StyledC />
       <div className="f">
         <div>안녕하세요.</div>
-      </div>
+      </div> */}
       {/* <Study1 />
       <Hello name="개리"/>
       <Time />
@@ -29,6 +30,7 @@ export default function App() {
       <ColorText color="red"/>
       <ColorText color="green"/>
       <ColorText color="blue"/> */}
+      <UseState />
     </div>
   );
 }
