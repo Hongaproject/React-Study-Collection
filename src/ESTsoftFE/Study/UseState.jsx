@@ -38,6 +38,33 @@ export default function UseState () {
         setPw(e.target.value);
     }
 
+    // 이벤트와 함께 사용하기 - 코드 줄이기
+    const [inputs, setInputs] = useState({
+        ids: '',
+        pws: ''
+    })
+
+    const {ids, pws} = inputs;
+
+    const onChange = (e) => {
+        const {name, value} = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value
+        });
+    }
+
+    const onLoginSubmits = (e) => {
+        e.preventDefault();
+        if(ids === ""){
+            alert("아이디 입력하지 않으셨습니다.");
+        } else if ( pws === ""){
+            alert("비밀번호 입력하지 않으셨습니다.");
+        } else {
+            setInputs({ids: "", pws: ""});
+        }
+    }
+
     return(
         <div>
             <h2>{count}</h2>
@@ -46,8 +73,14 @@ export default function UseState () {
 
             <h1>로그인 화면</h1>
             <form onSubmit={onLoginSubmit}>
-                <input type="text" placeholder='id' onChange={onIdChange} value={id}/>
-                <input type="password" placeholder='pw' onChange={onPwChange} value={pw}/>
+                <input type="text" placeholder='id' onChange={onIdChange} value={id} />
+                <input type="password" placeholder='pw' onChange={onPwChange} value={pw} />
+                <button type='submit'>Login</button>
+            </form> 
+            <br />
+            <form onSubmit={onLoginSubmits}>
+                <input type="text" placeholder='id' onChange={onChange} name="ids" value={ids} />
+                <input type="password" placeholder='pw' onChange={onChange} name="pws" value={pws} />
                 <button type='submit'>Login</button>
             </form>
         

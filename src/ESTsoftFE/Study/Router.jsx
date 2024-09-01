@@ -35,12 +35,22 @@ function Second () {
 }
 
 function Blog(){
+
+    // useLocation 훅을 사용하여 현재 URL의 위치 정보를 가져옵니다.
+    // location 객체는 pathname, search, hash 등 URL에 관한 다양한 정보를 포함합니다.
+
 	const location = useLocation();
     console.log(location)
+
     return <h1>hello Blog</h1>
 }
 
 function Blog2(){
+
+    // useParams 훅을 사용하여 URL의 동적 파라미터를 가져옵니다.
+    // URL 경로에서 정의된 파라미터(예: :id)를 추출할 수 있습니다.
+    
 	const {id} = useParams();
+
     return <h1>hello Blog {id}</h1>
 }
