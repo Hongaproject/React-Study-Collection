@@ -10,6 +10,7 @@ import RouterApp from "./ESTsoftFE/0821/RouterApp";
 import StyledC from "./ESTsoftFE/0822/StyledC";
 import "./App.css";
 import UseState from "./ESTsoftFE/Study/UseState";
+import Router from "./ESTsoftFE/Study/Router";
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
       <ColorText color="green"/>
       <ColorText color="blue"/> */}
       <UseState />
+      <Router />
     </div>
   );
 }
