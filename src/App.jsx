@@ -12,6 +12,7 @@ import "./App.css";
 import UseState from "./ESTsoftFE/Study/UseState";
 import Router from "./ESTsoftFE/Study/Router";
 import UseEffect from "./ESTsoftFE/Study/UseEffect";
+import UseRef from "./ESTsoftFE/Study/UseRef";
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
       <UseState />
       <Router />
       {/* <UseEffect /> */}
+      <UseRef />
     </div>
   );
 }
