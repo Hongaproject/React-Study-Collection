@@ -13,6 +13,7 @@ import UseState from "./ESTsoftFE/Study/UseState";
 import Router from "./ESTsoftFE/Study/Router";
 import UseEffect from "./ESTsoftFE/Study/UseEffect";
 import UseRef from "./ESTsoftFE/Study/UseRef";
+import UseMemo from "./ESTsoftFE/Study/UseMemo";
 
 export default function App() {
   return (
@@ -33,10 +34,11 @@ export default function App() {
       <ColorText color="red"/>
       <ColorText color="green"/>
       <ColorText color="blue"/> */}
-      <UseState />
+      {/* <UseState />
       <Router />
-      {/* <UseEffect /> */}
-      <UseRef />
+      <UseEffect />
+      <UseRef /> */}
+      <UseMemo />
     </div>
   );
 }
