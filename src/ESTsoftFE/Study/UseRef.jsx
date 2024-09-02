@@ -60,24 +60,55 @@ export default function UseRef() {
 
     const [email, setEmail] = useState("");
     const [pw, setPw] = useState("");
+    const emailRef = useRef(null);
+    const pwRef = useRef(null);
 
     const onSubmit = (e) => {
         e.preventDefault();
         // JS에서 DOM에게 접근할 때 사용되는 방식
-        console.log(document.querySelectorAll('input'));
-        setEmail(document.querySelectorAll('input')[0].value);
-        setPw(document.querySelectorAll('input')[1].value);
+        // console.log(document.querySelectorAll('input'));
+        // setEmail(document.querySelectorAll('input')[0].value);
+        // setPw(document.querySelectorAll('input')[1].value);
+
+        // React에서 DOM에게 접근할 때 사용되는 방식
+        if(emailRef.current.value === "") {
+            alert("이메일을 입력하세요.");
+            emailRef.current.focus();
+            return;
+        } else if(pwRef.current.value === "") {
+            alert("비밀번호를 입력하세요.");
+            pwRef.current.focus();
+            return;
+        }
+        setEmail(e.target.value);
+        setPw(e.target.value);
+    }
+
+    // 코드 줄이기
+    const [input, setInput] = useState({
+        em: "",
+        pws: ""
+    });
+
+    const {em, pws} = input; // input안에 name, value 작성하면 됨.
+
+    const onChange = (e) => {
+        const {name, value} = e.target;
+        setInput({
+            ...input,
+            [name] : value
+        })
     }
 
     return(
         <div>
-            <Counter />
+            {/* <Counter /> */}
             <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column" }}>
                 <label>
-                    이메일 : <input type="email" />
+                    이메일 : <input type="email" ref={emailRef} />
                 </label>
                 <label>
-                    비밀번호 : <input type="password" />
+                    비밀번호 : <input type="password" ref={pwRef} />
                 </label>
 
                 <button type="submit" style={{ width: "100px" }}>
