@@ -14,6 +14,7 @@ import Router from "./ESTsoftFE/Study/Router";
 import UseEffect from "./ESTsoftFE/Study/UseEffect";
 import UseRef from "./ESTsoftFE/Study/UseRef";
 import UseMemo from "./ESTsoftFE/Study/UseMemo";
+import UseContext from "./ESTsoftFE/Study/UseContext";
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
       <UseEffect />
       <UseRef /> */}
       <UseMemo />
+      <UseContext />
     </div>
   );
 }
