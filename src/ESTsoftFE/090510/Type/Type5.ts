@@ -73,4 +73,12 @@ function displayStatus(status: Status) {
 }
   
 displayStatus(Status.Loading);  // "Loading..."
-  
+
+// Heterogeneous Enum (혼합형 Enum)
+// 숫자형과 문자열형 값을 혼합해서 사용할 수도 있지만, 권장되지는 않습니다.
+
+enum Mix {
+  Yes = "YES",
+  No = 0
+}
+
