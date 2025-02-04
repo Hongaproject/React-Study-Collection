@@ -10,6 +10,7 @@
 리액트 딥 다이브 01장 - 리액트 개발을 위해 꼭 알아야할 자바스크립트 (클로저, 이벤트루프, 비동기통신)
 25/01/14 화 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
 리액트 딥 다이브 01장 - 리액트 개발을 위해 꼭 알아야할 자바스크립트 (이벤트루프, 리액트에서 자주 사용되는 자바스크립트 문법, 타입스크립트)
+
 25/01/15 수 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
 리액트 딥 다이브 02장 - 리액트 핵심 요소 깊게 살펴보기(JSX)
 25/01/17 금 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
@@ -24,6 +25,9 @@
 리액트 딥 다이브 02장 - 리액트 핵심 요소 깊게 살펴보기(생명주기, 클래스&함수 컴포넌트 차이점)
 25/01/23 목 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
 리액트 딥 다이브 02장 - 리액트 핵심 요소 깊게 살펴보기(리액트 렌더링, 렌더링 프로세스, 렌더&커밋)
-25/02/03 목 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
+
+25/02/03 월 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
 리액트 딥 다이브 03장 - 리액트 훅 깊게 살펴보기(useState(개념, 게으른 초기화), useEffect(개념, 클린업, 의존성배열, 주의점, 비동기함수))
+25/02/04 화 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
+리액트 딥 다이브 03장 - 리액트 훅 깊게 살펴보기(useMemo, useCallback)
 
