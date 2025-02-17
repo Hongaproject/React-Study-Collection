@@ -41,3 +41,6 @@
 
 25/02/12 수 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
 리액트 딥 다이브 04장 -서버 사이드 렌더링(서버 사이드 렌더링, 싱글 페이지 어플리케이션, 차이 및 장단점)
+25/02/17 월 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
+리액트 딥 다이브 04장 -서버 사이드 렌더링(전체 적인 4장 내용 정리)
+
