@@ -57,3 +57,6 @@
 25/02/25 화 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
 리액트 딥 다이브 05장 -리액트 상태 관리 라이브러리(내용 수기 작성 정리)
 
+25/02/26 수 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
+리액트 딥 다이브 06장 -리액트 개발 도구로 디버깅하기(컴포넌트)
+
