@@ -71,3 +71,6 @@
 리액트 딥 다이브 08장 -좋은 리액트 코드 작성을 위한 환경 구축하기(ESLint, Prettier) 
 25/03/13 목 - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
 리액트 딥 다이브 08장 -좋은 리액트 코드 작성을 위한 환경 구축하기(테스트 코드)
+
+25/03/17 월  - https://github.com/FE-TechBook-Study/Modern-React-Deep-Dive/tree/main/%5B01%EC%9E%A5%5D%20%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%EC%9D%84%20%EC%9C%84%ED%95%B4%20%EA%BC%AD%20%EC%95%8C%EC%95%84%EC%95%BC%ED%95%A0%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8 
+리액트 딥 다이브 09장 -모던 리액트 개발 도구로 개발 및 배포 환경 구축하기(Next js)
